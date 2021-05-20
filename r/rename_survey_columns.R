@@ -35,3 +35,24 @@ merge_word_associations <- function(data){
   return(data)
   
 }
+
+rename_species_of_interest <- function(data){
+ data <- dplyr::rename(data,
+                       "RiskSpecies" = `Dual[SQ001_SQ001]`,
+                       "ConserveSpecies" = `Dual[SQ003_SQ001]`)
+ return(data)
+}
+
+  
+  
+rename_mngmnt_ideas <- function(data){
+data <- dplyr::rename(data,
+                      "Monitoring_Do" =     `Array[SQ002_SQ001]`,
+                       "Monitoring_DontDo" = `Array[SQ002_SQ002]`,
+                           "Protecting_Do" = `Array[SQ003_SQ001]`,
+                       "Protecting_DontDo" = `Array[SQ003_SQ002]`,
+                           "Minimising_Do" = `Array[SQ004_SQ001]`,
+                       "Minimising_DontDo" = `Array[SQ004_SQ002]`
+) 
+return(data)
+}
