@@ -1,6 +1,6 @@
 ---
 title: "readme"
-author: "James Cranston"
+author: "Jamie Cranston"
 date: "20/05/2021"
 output: 
   html_document:
