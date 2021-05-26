@@ -1,1 +1,4 @@
 data_dir: "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/"
+validation_dirs:
+  education_val: "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/ValidationFiles/Validated/EducationValidated.csv"  
+  awareness_val: ""  
