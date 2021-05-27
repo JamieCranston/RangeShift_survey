@@ -82,6 +82,41 @@ check_education <- function(data, config) {
     dplyr::select(-contains("GDemographics03"))
   
   
+  other_validated <- other_validated %>% 
+    dplyr::mutate(education = ordered(education, levels = c("GCSEs", "A-levels", "Undergrad", "Postgrad")),
+           imputed_education = ordered(imputed_education, levels = c("GCSEs", "A-levels", "Undergrad", "Postgrad"))
+    )
   
     return(other_validated)
+}
+
+
+strings_as_factors <- function(data) {
+  data <- data %>%
+    dplyr::mutate(
+      dplyr::across(all_of(c(
+        "Birds",
+        "Mammals",
+        "Hymenoptera",
+        "Coleoptera",
+        "Lepidoptera",
+        "Diptera",
+        "Odonata",
+        "Hemiptera",
+        "NoSpGroups",
+        "Informal",
+        "Recorder",
+        "Verifier",
+        "Organiser", 
+        "NoRole")),
+        ~ factor(.x,levels = c("No","Yes"))
+      )
+    )
+  
+  data <- data %>% 
+    dplyr::mutate(climate_treatment = factor(ClimateEq, levels = c(0, 1), labels = c("Control", "Climate Change Prompt"))) %>% 
+    dplyr::select(-ClimateEq)
+  
+  return(data)
+  
 }
