@@ -169,3 +169,21 @@ rename_presented_species <- function(data){
   
   return(data) 
 }
+
+rename_final_text_Qs <- function(data){
+  
+  data <- data %>% 
+    dplyr::rename("implications_of_climate_change" ="FinalClimateCheck",
+                  "final_open_response_q" = "GFreeFromFinal")
+  
+  return(data)
+}
+
+#TODO
+reorder_table_columns <- function(data){
+  
+  data <- dplyr::relocate()
+
+return(data)
+  
+}
