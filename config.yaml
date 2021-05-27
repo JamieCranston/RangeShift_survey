@@ -1,4 +1,6 @@
 data_dir: "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/"
 validation_dirs:
   education_val: "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/ValidationFiles/Validated/EducationValidated.csv"  
-  awareness_val: ""  
+  awareness_val: "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/ValidationFiles/Validated/AwarenessValidated.csv"  
+  recorder_val: "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/ValidationFiles/Validated/InvolvementValidated.csv"
+  species_group_val: "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/ValidationFiles/Validated/OtherGroupsValidated.csv"
