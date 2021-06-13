@@ -1,4 +1,11 @@
 
+#' pivot_species_long
+#'
+#' @param data 
+#'
+#' @return
+#' @export
+#'
 pivot_species_long <-   function(data){
   
   vert_names <- c("Egarzetta",
@@ -60,7 +67,8 @@ pivot_species_long <-   function(data){
                   "Adapt" =  `03[SQ004]`,
                   "Support" =  `03[SQ005]`)
   
-  
+  data$species<- as.factor(data$species)
+  data$seen <- as.factor(data$seen)
   return(data)
   
 }

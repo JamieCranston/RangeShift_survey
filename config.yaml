@@ -4,3 +4,32 @@ validation_dirs:
   awareness_val: "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/ValidationFiles/Validated/AwarenessValidatedFinal.csv"  
   recorder_val: "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/ValidationFiles/Validated/InvolvementValidated.csv"
   species_group_val: "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/ValidationFiles/Validated/OtherGroupsValidated.csv"
+census_dirs:
+  sex: "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/QS104UK_Sex.xlsx"
+  education: "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/QS501UK_Ed.xlsx"
+geography_dirs:
+  postcode_areas:
+    dir: "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/PostcodePolygons"
+    file: "CombinedAreas"
+seeds:
+  species_attitudes: 1045428673
+  management_attitudes: 46400152
+species_pics:
+  hymenoptera: 
+   - "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/Pics/Wasp.png"
+   - "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/Pics/Bee.png"
+  birds:
+   - "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/Pics/LittleEgret.png"
+   - "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/Pics/LittleHeron.png"
+   - "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/Pics/PurpleHeron.png"
+   - "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/Pics/FakeStilt.png"
+   - "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/Pics/FakeIbis.png"
+   - "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/Pics/Spoonbill.png"
+   - "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/Pics/Cattle Egret.png"
+  odonata:
+   - "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/Pics/Dragonfly.png"
+   - "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/Pics/Zygoptera.png"
+  lepidoptera:
+   - "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/Pics/Moth.png"
+  hemiptera:
+   - "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/Pics/Shieldbug.png"

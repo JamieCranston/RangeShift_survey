@@ -1,3 +1,10 @@
+#' rename_recorder_info 
+#'
+#' @param data 
+#'
+#' @return
+#' @export
+#'
 rename_recorder_info <- function(data){
 
 data <- dplyr::rename(data,
@@ -11,7 +18,7 @@ data <- dplyr::rename(data,
                     "Hemiptera" = "GRecorderInfo02[SQ007]",
                     "NoSpGroups" = "GRecorderInfo02[spanstylefontsize14p]",
                     "OtherGroups" = "GRecorderInfo02[other]",
-                    "YearsRecording" = "GRecorderInfo04",
+                    "years_recording" = "GRecorderInfo04",
                     "Informal" = "GRecorderInfo03[SQ006]",
                     "Recorder" = "GRecorderInfo03[SQ001]",
                     "Verifier" = "GRecorderInfo03[SQ002]",
@@ -23,6 +30,13 @@ data <- dplyr::rename(data,
 return(data)
 }
 
+#' merge_word_associations
+#'
+#' @param data 
+#'
+#' @return
+#' @export
+#'
 merge_word_associations <- function(data){
   
   data <- dplyr::mutate(data,
@@ -36,6 +50,12 @@ merge_word_associations <- function(data){
   
 }
 
+#' rename_species_of_interest 
+#'
+#' @param data 
+#'
+#' @return
+#' @export
 rename_species_of_interest <- function(data){
  data <- dplyr::rename(data,
                        "RiskSpecies" = `Dual[SQ001_SQ001]`,
@@ -45,6 +65,13 @@ rename_species_of_interest <- function(data){
 
   
   
+#' rename_mngmnt_ideas
+#'
+#' @param data 
+#'
+#' @return
+#' @export
+#'
 rename_mngmnt_ideas <- function(data){
 data <- dplyr::rename(data,
                       "Monitoring_Do" =     `Array[SQ002_SQ001]`,
@@ -57,6 +84,13 @@ data <- dplyr::rename(data,
 return(data)
 }
 
+#' rename_VoN
+#'
+#' @param data 
+#'
+#' @return
+#' @export
+#'
 rename_VoN <- function(data){
   
   data <- data %>% 
@@ -108,6 +142,13 @@ rename_VoN <- function(data){
   
 }
 
+#' check_respondents_postcode 
+#'
+#' @param data 
+#'
+#' @return
+#' @export
+#'
 check_respondents_postcode <- function(data){
   
   data <- data %>% 
@@ -117,6 +158,13 @@ check_respondents_postcode <- function(data){
   return(data)
 }
 
+#' check_wildlife_sector
+#'
+#' @param data 
+#'
+#' @return
+#' @export
+#'
 check_wildlife_sector<- function(data){
   
   data <- data %>% 
@@ -124,6 +172,13 @@ check_wildlife_sector<- function(data){
   return(data)
 }
   
+#' rename_presented_species
+#'
+#' @param data 
+#'
+#' @return
+#' @export
+#'
 rename_presented_species <- function(data){
  
   vert_names <- c(
@@ -157,7 +212,7 @@ rename_presented_species <- function(data){
         breaks = 8,
         labels = vert_names),
       invertebrate_1 = cut(
-        InvertEq2,
+        InvertEq1,
         breaks = 8,
         labels = invert_names),
       invertebrate_2 = cut(
@@ -170,6 +225,13 @@ rename_presented_species <- function(data){
   return(data) 
 }
 
+#' rename_final_text_Qs
+#'
+#' @param data 
+#'
+#' @return
+#' @export
+#'
 rename_final_text_Qs <- function(data){
   
   data <- data %>% 
@@ -180,6 +242,13 @@ rename_final_text_Qs <- function(data){
 }
 
 #TODO
+#' reorder_table_columns
+#'
+#' @param data 
+#'
+#' @return
+#' @export
+#'
 reorder_table_columns <- function(data){
   
   data <- dplyr::relocate()
