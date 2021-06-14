@@ -120,3 +120,5 @@ plot_supp_fig_10()
 plot_table_2_figures_insets()
 plot_supp_table_2_figures_insets()
 plot_supp_table_3_figures_insets()
+
+save_output_figures()
