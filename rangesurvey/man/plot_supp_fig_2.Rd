@@ -7,12 +7,12 @@
 plot_supp_fig_2(data, config)
 }
 \arguments{
-\item{data}{}
+\item{data}{Survey data (cleaned)}
 
-\item{config}{}
+\item{config}{Config file (for paths to census  data)}
 }
 \value{
-
+supplementary figure 2
 }
 \description{
 plot_supp_fig_2

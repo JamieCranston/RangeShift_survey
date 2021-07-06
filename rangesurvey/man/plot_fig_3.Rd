@@ -7,7 +7,7 @@
 plot_fig_3(speciesdata)
 }
 \arguments{
-\item{speciesdata}{}
+\item{speciesdata}{attitudes to species management dataset}
 }
 \value{
 

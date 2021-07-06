@@ -7,7 +7,7 @@
 plot_fig_1(speciesdata)
 }
 \arguments{
-\item{speciesdata}{}
+\item{speciesdata}{survey_species_responses}
 }
 \value{
 

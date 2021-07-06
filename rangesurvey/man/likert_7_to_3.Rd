@@ -7,10 +7,10 @@
 likert_7_to_3(data)
 }
 \arguments{
-\item{data}{}
+\item{data}{species or management attitude responses}
 }
 \value{
-
+dataframe with collapsed likert attitude responses from a scale of 7 to a scale of 3
 }
 \description{
 likert_7_to_3

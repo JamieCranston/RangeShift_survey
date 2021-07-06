@@ -7,12 +7,12 @@
 plot_supp_fig_5(data, config)
 }
 \arguments{
-\item{data}{}
+\item{data}{cleaned respondent data table}
 
-\item{config}{}
+\item{config}{config file for paths to spatial polygons}
 }
 \value{
-
+Map of respondent locations
 }
 \description{
 plot_supp_fig_5

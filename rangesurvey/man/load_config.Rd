@@ -4,7 +4,10 @@
 \alias{load_config}
 \title{load_config}
 \usage{
-load_config()
+load_config(config = "config.yaml")
+}
+\arguments{
+\item{config}{path to config}
 }
 \value{
 

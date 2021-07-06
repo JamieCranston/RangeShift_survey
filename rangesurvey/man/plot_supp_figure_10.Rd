@@ -2,16 +2,16 @@
 % Please edit documentation in R/plot_supp_figure_10.R
 \name{plot_supp_figure_10}
 \alias{plot_supp_figure_10}
-\title{Title}
+\title{plot_supp_figure_10}
 \usage{
 plot_supp_figure_10(data = management_responses_to_model)
 }
 \arguments{
-\item{data}{}
+\item{data}{management_responses_to_model}
 }
 \value{
-
+supplementary figure 10 (outputs of clustering method)
 }
 \description{
-Title
+plot_supp_figure_10
 }

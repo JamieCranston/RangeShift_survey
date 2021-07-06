@@ -6,9 +6,12 @@
 \usage{
 plot_supp_fig_4(data = respondent_table_clean)
 }
+\arguments{
+\item{data}{cleaned respondent data table}
+}
 \value{
-
+faceted plot of respondent demographics
 }
 \description{
-plot_supp_fig_4
+produces faceted plot of respondent demographics
 }

@@ -7,10 +7,10 @@
 plot_supp_fig_7(data = respondent_table_clean)
 }
 \arguments{
-\item{data}{}
+\item{data}{cleaned respondent data}
 }
 \value{
-
+supplementary figure 7
 }
 \description{
 Title

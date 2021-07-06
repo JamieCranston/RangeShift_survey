@@ -7,10 +7,10 @@
 plot_supp_fig_6(speciesdata = survey_responses_to_model)
 }
 \arguments{
-\item{speciesdata}{}
+\item{speciesdata}{cleaned attitude to species responses}
 }
 \value{
-
+supplementary figure 6
 }
 \description{
 plot_supp_fig_6

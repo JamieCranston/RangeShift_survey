@@ -7,10 +7,10 @@
 scale_numerics(data)
 }
 \arguments{
-\item{data}{}
+\item{data}{respondent character table}
 }
 \value{
-
+respondent character table with years recording and age mean center scaled
 }
 \description{
 scale_numerics

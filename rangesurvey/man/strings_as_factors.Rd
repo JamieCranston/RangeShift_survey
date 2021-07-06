@@ -7,10 +7,10 @@
 strings_as_factors(data)
 }
 \arguments{
-\item{data}{}
+\item{data}{respondent character table}
 }
 \value{
-
+dataframe of responses with columns converted from character to factor class
 }
 \description{
 strings_as_factors

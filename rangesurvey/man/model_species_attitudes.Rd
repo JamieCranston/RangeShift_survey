@@ -10,12 +10,12 @@ model_species_attitudes(
 )
 }
 \arguments{
-\item{species_data}{}
+\item{species_data}{cleaned species responses data}
 
-\item{respondent_data}{}
+\item{respondent_data}{cleaned respondent data}
 }
 \value{
-
+brms model object of predicted attitudes to management
 }
 \description{
 model_species_attitude

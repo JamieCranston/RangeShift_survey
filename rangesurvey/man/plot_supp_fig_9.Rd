@@ -10,9 +10,9 @@ plot_supp_fig_9(
 )
 }
 \arguments{
-\item{data}{}
+\item{data}{Survey responses to management (model input)}
 
-\item{model}{}
+\item{model}{Management attitudes brms model}
 }
 \value{
 

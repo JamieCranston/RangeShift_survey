@@ -7,9 +7,9 @@
 recolour_species_pics(pic, colour)
 }
 \arguments{
-\item{pic}{}
+\item{pic}{jpeg object in r (array)}
 
-\item{colour}{}
+\item{colour}{colour in rgb format (i.e. vector length 3)}
 }
 \value{
 

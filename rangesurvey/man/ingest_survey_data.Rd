@@ -7,10 +7,10 @@
 ingest_survey_data(config)
 }
 \arguments{
-\item{config}{}
+\item{config}{config file with paths to survey data}
 }
 \value{
-
+raw survey data
 }
 \description{
 ingest_survey_data

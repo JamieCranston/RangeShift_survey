@@ -7,7 +7,7 @@
 pivot_species_long(data)
 }
 \arguments{
-\item{data}{}
+\item{data}{survey_species_responses}
 }
 \value{
 

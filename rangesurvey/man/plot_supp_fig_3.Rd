@@ -7,10 +7,10 @@
 plot_supp_fig_3(data)
 }
 \arguments{
-\item{data}{}
+\item{data}{survey data (respondent cleaned)}
 }
 \value{
-
+supplementary figure 3
 }
 \description{
 plot_supp_fig_3

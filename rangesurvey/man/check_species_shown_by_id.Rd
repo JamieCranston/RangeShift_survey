@@ -7,9 +7,9 @@
 check_species_shown_by_id(speciesdata, respondentdata)
 }
 \arguments{
-\item{speciesdata}{}
+\item{speciesdata}{cleaned species responses data}
 
-\item{respondentdata}{}
+\item{respondentdata}{cleaned  respondent data}
 }
 \value{
 

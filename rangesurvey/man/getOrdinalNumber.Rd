@@ -7,10 +7,10 @@
 getOrdinalNumber(num)
 }
 \arguments{
-\item{num}{}
+\item{num}{a number (day in month)}
 }
 \value{
-
+character vector of day in string format with ordinal suffix
 }
 \description{
 getOrdinalNumber

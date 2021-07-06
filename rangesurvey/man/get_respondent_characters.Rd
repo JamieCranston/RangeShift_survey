@@ -7,10 +7,10 @@
 get_respondent_characters(data)
 }
 \arguments{
-\item{data}{}
+\item{data}{whole survey data}
 }
 \value{
-
+respondent character table
 }
 \description{
 get_respondent_characters

@@ -6,16 +6,16 @@
 \usage{
 model_management_attitudes(
   species_data = management_responses_to_model,
-  respondent_data = respondent_character_table_clean
+  respondent_data = respondent_table_clean
 )
 }
 \arguments{
-\item{species_data}{}
+\item{species_data}{cleaned species responses data}
 
-\item{respondent_data}{}
+\item{respondent_data}{cleaned respondent data}
 }
 \value{
-
+brms model object of predicted attitudes to management
 }
 \description{
 model_management_attitudes
