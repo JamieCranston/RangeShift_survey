@@ -1,58 +1,69 @@
 
 #' plot_fig_1
 #'
-#' @param speciesdata 
+#' @param speciesdata survey_species_responses
 #'
 #' @return
-#' @import HH
+#' @importFrom HH likert likertColor
 #' @export
 #'
-#' 
+#'
 plot_fig_1 <- function(speciesdata) {
-  
-  
-list_vars <- list(c("attitude_to_species"),
-                  c("attitude_to_species", "seen"),
-                  c("attitude_to_species","match")
-)
+  list_vars <- list(
+    c("attitude_to_species"),
+    c("attitude_to_species", "seen"),
+    c("attitude_to_species", "match")
+  )
 
-att <- speciesdata %>%
-  dplyr::select(attitude_to_species) %>%
-  dplyr::group_by(attitude_to_species)%>% 
-  na.omit()
+  att <- speciesdata %>%
+    dplyr::select(.data$attitude_to_species) %>%
+    dplyr::group_by(.data$attitude_to_species) %>%
+    stats::na.omit()
 
-att_seen <- speciesdata %>%
-    dplyr::select(attitude_to_species, seen) %>%
-    dplyr::group_by(attitude_to_species, seen)%>% 
-  na.omit()
+  att_seen <- speciesdata %>%
+    dplyr::select(.data$attitude_to_species, .data$seen) %>%
+    dplyr::group_by(.data$attitude_to_species, .data$seen) %>%
+    stats::na.omit()
 
-att_match <- speciesdata %>%
-  dplyr::select(attitude_to_species, match) %>%
-  dplyr::group_by(attitude_to_species, match) %>% 
-  na.omit()
+  att_match <- speciesdata %>%
+    dplyr::select(.data$attitude_to_species, .data$match) %>%
+    dplyr::group_by(.data$attitude_to_species, .data$match) %>%
+    stats::na.omit()
 
-attitudes_list <- lapply(list(att,att_seen,att_match), function(X) {
-  
-  data <- X %>%
-  dplyr::summarise(Count = dplyr::n()) %>%
-  tidyr::pivot_wider(
-    .,
-    names_from = attitude_to_species,
-    values_from = Count,
-    values_fill = list(Count = 0)
-  ) 
-  return(data)
-}
-)
-combined_data <- dplyr::bind_rows(attitudes_list[2:3]) %>% 
-  tidyr::pivot_longer(cols= c("seen","match"),
-                      names_to = "type",
-                      values_to = "attribute",
-                      values_drop_na = T) %>% 
-  dplyr::bind_rows(cbind(attitudes_list[[1]], type = "all responses", attribute = ""))
+  attitudes_list <- lapply(list(att, att_seen, att_match), function(X) {
+    data <- X %>%
+      dplyr::summarise(Count = dplyr::n()) %>%
+      tidyr::pivot_wider(
+        .data$.,
+        names_from = .data$attitude_to_species,
+        values_from = .data$Count,
+        values_fill = list(Count = 0)
+      )
+    return(data)
+  })
+  combined_data <- dplyr::bind_rows(attitudes_list[2:3]) %>%
+    tidyr::pivot_longer(
+      cols = c("seen", "match"),
+      names_to = "type",
+      values_to = "attribute",
+      values_drop_na = TRUE
+    ) %>%
+    dplyr::bind_rows(cbind(attitudes_list[[1]], type = "all responses", attribute = "")) %>%
+    dplyr::relocate("Strongly Negative",
+                    "Quite Negative",
+                    "A Bit Negative",
+                    "Neutral",
+                    )
+  combined_data <- combined_data %>% 
+    dplyr::mutate(type = dplyr::case_when(type == "all responses" ~ "All/nSurvey Responses",
+                                          TRUE ~ stringr::str_to_sentence(type)),
+                  attribute = dplyr::case_when(type == "Match" & attribute == "Yes" ~ "Group\nrecorded",
+                                               type == "Match" & attribute == "No" ~ "Group not\nrecorded",
+                                               TRUE ~ attribute)
+                  )
 
 
-HH::likert(
+  fig_1 <- HH::likert(
     attribute ~ . | type,
     as.percent = TRUE,
     ReferenceZero = 4,
@@ -87,8 +98,10 @@ HH::likert(
     rightAxis = F,
     xlim = c(-100, 100),
     par.settings.in = list(
-      axis.text = list(cex = 1,
-                       lineheight = 0.8),
+      axis.text = list(
+        cex = 1,
+        lineheight = 0.8
+      ),
       # increase the size of the x axis tick labels
       par.xlab.text = list(cex = 1.2),
       # increase the size of the x axis label
@@ -102,22 +115,23 @@ HH::likert(
     ),
     par.strip.text = list(cex = 1.1),
     # increase the size of the strip labels
-    #h.resizePanels = c(1, 2, 2.3, 2, 2)
+    # h.resizePanels = c(1, 2, 2.3, 2, 2)
     h.resizePanels = c(1, 2, 2)
   )
-
+  
+  return(fig_1)
 }
 
 
 # Responses <-
 #   read.csv("ProcessedData/2019-09-10CleanedDataResponses.csv")
-# 
+#
 # Responses <- Responses %>%
 #   filter(!is.na(Attitude))
-# 
+#
 # Att <- Responses  %>%
 #   mutate(Attribute = "All Survey\nResponses", Type = "")
-# 
+#
 # AttSeen <- Responses %>%
 #   dplyr::select(Attitude, Seen) %>%
 #   group_by(Attitude, Seen) %>%
@@ -139,7 +153,7 @@ HH::likert(
 #     "Very Positive" = "7"
 #   ) %>%
 #   mutate(Type = "Seen")
-# 
+#
 # AttMatch <- Responses %>%
 #   dplyr::select(Attitude, Match) %>%
 #   group_by(Attitude, Match) %>%
@@ -165,8 +179,8 @@ HH::likert(
 #     Attribute == 1 ~ "Group\nrecorded",
 #     Attribute == 0 ~ "Group not\nrecorded"
 #   ))
-# 
-# 
+#
+#
 # Combined_Data <- bind_rows(Att,
 #                            AttSeen,
 #                            AttMatch)
@@ -181,7 +195,7 @@ HH::likert(
 #   "Attribute",
 #   "Type"
 # )
-# 
+#
 # tiff(
 #   file = "Figures/RQ2Plot.tif",
 #   width = 200,
@@ -189,7 +203,7 @@ HH::likert(
 #   res = 600,
 #   units = "mm"
 # )
-# 
+#
 # likert(
 #   Attribute ~ . | Type,
 #   as.percent = TRUE,
