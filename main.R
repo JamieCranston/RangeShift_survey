@@ -1,6 +1,7 @@
 
 library(rangesurvey)
 library(magrittr)
+library(ggplot2)
 
 ggplot2::theme_set(load_theme())
 
@@ -63,27 +64,11 @@ survey_responses_to_model  <- survey_species_responses %>%
   is_species_in_recorded_group(speciesdata = .,
                                 respondentdata = respondent_table_clean) 
 
-species_responses_to_model <- survey_responses_to_model %>%
-  likert_7_to_3() %>%
-  dplyr::select(id,
-                species,
-                attitude_to_species,
-                seen,
-                match)
+species_responses_to_model <- get_attitude_models_data(data = survey_responses_to_model,
+                                                       model = "species")
 
-management_responses_to_model <-  survey_responses_to_model %>%
-  likert_7_to_3() %>%
-  dplyr::select(id,
-                species,
-                attitude_to_species,
-                Remove,
-                Mitigate,
-                Accept,
-                Adapt,
-                Support,
-                seen,
-                match)
-
+management_responses_to_model <- get_attitude_models_data(data = survey_responses_to_model,
+                                                          model = "management")
 # visualise model input data ----------------------------------------------
 
 # number of responses by species
