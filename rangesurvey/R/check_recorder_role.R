@@ -16,29 +16,29 @@ check_recorder_role <- function(data, config) {
       .data$Informal == "Yes" ~ "recorder_informal",
       T ~ NA_character_
     ))
-  
+
   recorder_val <- readr::read_csv(config$validation_dirs$recorder_val, col_types = readr::cols(
     id = "c",
     imputed_involvement = "c"
   ))
-  
+
   print("please see our assessment of respondent answers to whether they could name an arriving range-shifting species")
   print(recorder_val)
-  
+
   other_validated <- data %>%
-    dplyr::left_join(.data$., recorder_val %>%
-                       dplyr::select(
-                         -.data$YearsRecording,
-                         -.data$OtherRole,
-                         -.data$NoRole,
-                         -.data$Organiser,
-                         -.data$Verifier,
-                         -.data$Recorder,
-                         -.data$Informal
-                       ), by = "id")
-  
-  
-  
+    dplyr::left_join(x = ., y = recorder_val %>%
+      dplyr::select(
+        -.data$YearsRecording,
+        -.data$OtherRole,
+        -.data$NoRole,
+        -.data$Organiser,
+        -.data$Verifier,
+        -.data$Recorder,
+        -.data$Informal
+      ), by = "id")
+
+
+
   other_validated <- other_validated %>%
     dplyr::mutate(
       involvement = ordered(.data$involvement, levels = c("recorder_informal", "recorder_formal", "verifier", "organiser")),

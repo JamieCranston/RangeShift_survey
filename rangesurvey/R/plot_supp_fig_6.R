@@ -9,14 +9,14 @@
 plot_supp_fig_6 <- function(speciesdata = survey_responses_to_model) {
   data <- speciesdata %>%
     dplyr::select(.data$species, .data$attitude_to_species) %>%
-   stats::na.omit() %>%
+    stats::na.omit() %>%
     dplyr::group_by(.data$., .data$species, .data$attitude_to_species) %>%
     dplyr::count() %>%
     dplyr::ungroup() %>%
     tidyr::pivot_wider(.data$species,
-                       .data$attitude_to_species,
+      .data$attitude_to_species,
       values_from = .data$n,
-      values_fill  = 0
+      values_fill = 0
     ) %>%
     dplyr::mutate(species = sapply(.data$species, stringr::str_replace, pattern = "(^.)", replacement = "\\1. ")) %>%
     dplyr::relocate("species", "Strongly Negative", "Quite Negative", "A Bit Negative", "Neutral", "A Bit Positive", "Quite Positive", "Strongly Positive") %>%

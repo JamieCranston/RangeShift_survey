@@ -8,6 +8,6 @@
 #'
 reorder_table_columns <- function(data) {
   data <- dplyr::relocate()
-  
+
   return(data)
 }

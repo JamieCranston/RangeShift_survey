@@ -7,7 +7,7 @@
 #' @export
 #'
 is_species_in_recorded_group <- function(speciesdata,
-                                          respondentdata = respondent_character_table_clean) {
+                                         respondentdata = respondent_character_table_clean) {
   vertnames <- c(
     "Egarzetta",
     "Pleucorodia",
@@ -49,7 +49,8 @@ is_species_in_recorded_group <- function(speciesdata,
       dplyr::contains("vert")
     ) %>%
     tidyr::pivot_longer(dplyr::contains("vert"),
-                        values_to = "species") %>%
+      values_to = "species"
+    ) %>%
     dplyr::mutate(match = as.factor(dplyr::case_when(
       species %in% vertnames & Birds == "Yes" |
         species %in% hemipnames & Hemiptera == "Yes" |

@@ -23,4 +23,3 @@ get_respondent_characters <- function(data) {
     ) %>%
     dplyr::mutate(id = as.factor(.data$id))
 }
-

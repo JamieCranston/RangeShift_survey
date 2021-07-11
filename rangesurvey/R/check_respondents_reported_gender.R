@@ -21,4 +21,3 @@ check_respondents_reported_gender <- function(data) {
 
   return(data)
 }
-

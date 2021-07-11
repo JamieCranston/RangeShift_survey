@@ -7,15 +7,15 @@
 #'
 merge_word_associations <- function(data) {
   data <- dplyr::mutate(data,
-                        Associations = dplyr::coalesce(
-                          .data$CCassociations,
-                          .data$InfoAssociations
-                        )
+    Associations = dplyr::coalesce(
+      .data$CCassociations,
+      .data$InfoAssociations
+    )
   ) %>%
     dplyr::select(-dplyr::all_of(c(
       "CCassociations",
       "InfoAssociations"
     )))
-  
+
   return(data)
 }

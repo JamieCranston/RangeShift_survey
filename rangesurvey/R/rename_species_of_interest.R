@@ -6,8 +6,8 @@
 #' @export
 rename_species_of_interest <- function(data) {
   data <- dplyr::rename(data,
-                        "RiskSpecies" = .data$`Dual[SQ001_SQ001]`,
-                        "ConserveSpecies" = .data$`Dual[SQ003_SQ001]`
+    "RiskSpecies" = .data$`Dual[SQ001_SQ001]`,
+    "ConserveSpecies" = .data$`Dual[SQ003_SQ001]`
   )
   return(data)
 }

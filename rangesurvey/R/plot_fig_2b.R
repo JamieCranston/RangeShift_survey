@@ -1,4 +1,4 @@
-#' plot_fig_2b 
+#' plot_fig_2b
 #'
 #' @param data species effects from brms
 #' @param config config

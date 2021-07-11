@@ -6,11 +6,9 @@
 #' @export
 #'
 remove_response_times <- function(data) {
-  data <- dplyr::select(data,
-                        -dplyr::contains("Time"))
+  data <- dplyr::select(
+    data,
+    -dplyr::contains("Time")
+  )
   return(data)
 }
-
-
-
-

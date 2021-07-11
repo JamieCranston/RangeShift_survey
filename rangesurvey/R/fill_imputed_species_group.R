@@ -6,17 +6,19 @@
 #' @export
 fill_imputed_species_group <- function(data) {
   impute_sep <- data %>%
-    dplyr::select(.data$id,
-                  .data$imputed_group) %>%
+    dplyr::select(
+      .data$id,
+      .data$imputed_group
+    ) %>%
     tidyr::separate(.data$.,
-                    .data$imputed_group,
-                    sep = ";",
-                    into = c(
-                      "imputed_1",
-                      "imputed_2"
-                    )
+      .data$imputed_group,
+      sep = ";",
+      into = c(
+        "imputed_1",
+        "imputed_2"
+      )
     )
-  
+
   impute_sep <- impute_sep %>%
     dplyr::filter(!dplyr::across(
       dplyr::all_of(dplyr::contains("imputed")),
@@ -102,6 +104,6 @@ fill_imputed_species_group <- function(data) {
       -.data$imputed_1,
       -.data$imputed_2
     )
-  
+
   return(imputed_merged_in)
 }

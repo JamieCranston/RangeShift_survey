@@ -21,22 +21,22 @@ check_education <- function(data, config) {
       -.data$`GDemographics03[SQ003]`,
       -.data$`GDemographics03[SQ004]`
     )
-  
+
   education_val <- readr::read_csv(config$validation_dirs$education_val, col_types = readr::cols(id = "c"))
-  
+
   print("please see our imputations of respondent education from the Education (other) responses")
   print(education_val)
-  
+
   other_validated <- data %>%
-    dplyr::left_join(.data$., .data$education_val, by = "id") %>%
+    dplyr::left_join(x = ., y = education_val, by = "id") %>%
     dplyr::select(-dplyr::contains("GDemographics03"))
-  
-  
+
+
   other_validated <- other_validated %>%
     dplyr::mutate(
       education = ordered(.data$education, levels = c("GCSEs", "A-levels", "Undergrad", "Postgrad")),
       imputed_education = ordered(.data$imputed_education, levels = c("GCSEs", "A-levels", "Undergrad", "Postgrad"))
     )
-  
+
   return(other_validated)
 }

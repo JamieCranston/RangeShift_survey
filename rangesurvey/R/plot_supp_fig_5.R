@@ -2,7 +2,7 @@
 #'
 #' @param data cleaned respondent data table
 #' @param config config file for paths to spatial polygons
-#' 
+#'
 #' @return Map of respondent locations
 #' @export
 #'

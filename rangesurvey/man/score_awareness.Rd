@@ -4,7 +4,7 @@
 \alias{score_awareness}
 \title{score_awareness}
 \usage{
-score_awareness(data = respondent_table_clean, numeric_out = FALSE)
+score_awareness(data, numeric_out = FALSE)
 }
 \arguments{
 \item{data}{respondent character table}

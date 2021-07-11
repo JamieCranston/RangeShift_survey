@@ -23,7 +23,7 @@ get_species_responses <- function(data) {
       )
     ) %>%
     dplyr::mutate(id = as.factor(.data$id))
-  
-  
+
+
   return(data)
 }

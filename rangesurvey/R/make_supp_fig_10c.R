@@ -14,15 +14,15 @@ make_supp_fig_10c <- function(data = data.hcpc) {
     ) %>%
     dplyr::mutate(Q = gsub(x = .data$Q, pattern = ".*_", replacement = "")) %>%
     dplyr::mutate(name = factor(.data$name, levels = c("Support", "Adapt", "Accept", "Mitigate", "Remove")))
-  
-  
+
+
   labels <- c(
     "1" = "Cluster 1: Support Colonists",
     "2" = "Cluster 2: Wary of Colonists",
     "3" = "Cluster 3: Non-Intervention",
     "4" = "Cluster 4: Neutral"
   )
-  
+
   lineplot <- ggplot(
     data = linedata,
     aes(
@@ -33,9 +33,9 @@ make_supp_fig_10c <- function(data = data.hcpc) {
   ) +
     geom_line(position = position_jitter(0.1, 0.1)) +
     facet_wrap(~clust,
-               scales = "free_y",
-               labeller = labeller(clust = labels)
+      scales = "free_y",
+      labeller = labeller(clust = labels)
     )
-  
+
   return(lineplot)
 }

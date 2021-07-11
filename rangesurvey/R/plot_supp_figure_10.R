@@ -12,4 +12,3 @@ plot_supp_figure_10 <- function(data = management_responses_to_model) {
   supp_fig_10 <- supp_fig_10c
   return(supp_fig_10)
 }
-

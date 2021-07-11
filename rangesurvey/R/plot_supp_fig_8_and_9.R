@@ -4,7 +4,7 @@
 #'
 #' @return ggplot
 #' @import ggplot2
-#' @importFrom cubelyr as.tbl_cube as_tibble.tbl_cube
+#' @import cubelyr
 #' @export
 plot_supp_fig_8 <- function(data = management_attitudes_model) {
   data <- readRDS("D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/Management_Condensed.Rds")
@@ -65,7 +65,8 @@ plot_supp_fig_8 <- function(data = management_attitudes_model) {
     geom_point(aes(color = .data$attitude, x = .data$attitude, y = .data$`50%`)) +
     geom_errorbar(aes(color = .data$attitude, x = .data$attitude, ymin = .data$`2.5%`, y = .data$`50%`, ymax = .data$`97.5%`)) +
     facet_grid(~management_option,
-               scales = "free_x") +
+      scales = "free_x"
+    ) +
     ylab("Probability of Attitude") +
     ylim(c(0, 1)) +
     scale_colour_manual(
@@ -161,7 +162,7 @@ plot_supp_fig_9 <- function(data = management_responses_to_model,
     ordered = TRUE
   )
 
-  PredictionData$MO <- forcats::fct_relabel(PredictionData$MO, ~ gsub(x = .,replacement = "", pattern = "\\..*"))
+  PredictionData$MO <- forcats::fct_relabel(PredictionData$MO, ~ gsub(x = ., replacement = "", pattern = "\\..*"))
 
   Ns <- data %>%
     tidyr::pivot_longer(
@@ -225,7 +226,7 @@ plot_supp_fig_9 <- function(data = management_responses_to_model,
       "250-750"
     )
   )
-  PD$cats__ <- forcats::fct_relevel(PD$cats__,... = c("Anti","Neutral","Pro"))
+  PD$cats__ <- forcats::fct_relevel(PD$cats__, ... = c("Anti", "Neutral", "Pro"))
 
   MOModel <- ggplot(PD) +
     geom_pointrange(aes(x = .data$cats__, ymin = .data$lower__, ymax = .data$upper__, y = .data$estimate__, colour = .data$cats__, lty = .data$Freq, shape = .data$Freq)) +

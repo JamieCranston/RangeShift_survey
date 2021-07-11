@@ -1,11 +1,11 @@
-#' score_awareness 
+#' score_awareness
 #'
 #' @param data respondent character table
 #' @param numeric_out whether function ouput should be numeric or character (Boolean)
 #' @return respondent character table with awareness_score addedd either as character or numeric
 #' @export
 #'
-score_awareness <- function(data = respondent_table_clean,
+score_awareness <- function(data,
                             numeric_out = FALSE) {
   data_awareness_scored <- data %>%
     dplyr::select(
@@ -37,16 +37,16 @@ score_awareness <- function(data = respondent_table_clean,
       .data$Taxa,
       .data$awareness_score
     )
-  if(numeric_out == TRUE){
+  if (numeric_out == TRUE) {
     data_awareness_scored <- data_awareness_scored %>%
-      dplyr::mutate(awareness_score = dplyr::case_when(awareness_score == "Correctly\nNamed" ~ 2,
-                                                       awareness_score == "Incorrectly\nNamed" ~ 1,
-                                                       awareness_score == "Didn't\nEvidence" ~ 1,
-                                                       awareness_score == "Don't know/\nDidn't answer" ~ 0,
-                                                      TRUE ~ NA_real_ 
-                                                       )
-                    )
+      dplyr::mutate(awareness_score = dplyr::case_when(
+        awareness_score == "Correctly\nNamed" ~ 2,
+        awareness_score == "Incorrectly\nNamed" ~ 1,
+        awareness_score == "Didn't\nEvidence" ~ 1,
+        awareness_score == "Don't know/\nDidn't answer" ~ 0,
+        TRUE ~ NA_real_
+      ))
   }
-  
+
   return(data_awareness_scored)
 }

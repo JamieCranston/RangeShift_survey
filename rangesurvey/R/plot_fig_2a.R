@@ -1,4 +1,4 @@
-#' plot_fig_2a 
+#' plot_fig_2a
 #'
 #' @param data brms marginal effects objects
 #'

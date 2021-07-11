@@ -85,4 +85,3 @@ plot_supp_fig_7 <- function(data = respondent_table_clean) {
     )
   return(plot)
 }
-

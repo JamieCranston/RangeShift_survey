@@ -9,8 +9,10 @@
 
 model_species_attitudes <- function(species_data = species_responses_to_model,
                                     respondent_data = respondent_character_table_clean) {
-  model_input_data <- dplyr::left_join(species_data,
-                                       respondent_data) %>%
+  model_input_data <- dplyr::left_join(
+    species_data,
+    respondent_data
+  ) %>%
     dplyr::select(
       .data$.,
       .data$attitude_to_species,

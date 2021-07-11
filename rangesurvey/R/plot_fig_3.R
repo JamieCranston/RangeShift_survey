@@ -31,12 +31,13 @@ plot_fig_3 <- function(speciesdata) {
     dplyr::mutate(Type = "Management Option")
 
   ManagementResponses <- ManagementResponses[c(5, 2, 1, 3, 4), ] %>%
-    dplyr::relocate("Strongly Negative",
-                    "Quite Negative",
-                    "A Bit Negative",
-                    "Neutral",
+    dplyr::relocate(
+      "Strongly Negative",
+      "Quite Negative",
+      "A Bit Negative",
+      "Neutral",
     )
-    
+
 
   fig_3 <- HH::likert(
     MO ~ . | Type,

@@ -49,18 +49,24 @@ plot_fig_1 <- function(speciesdata) {
       values_drop_na = TRUE
     ) %>%
     dplyr::bind_rows(cbind(attitudes_list[[1]], type = "all responses", attribute = "")) %>%
-    dplyr::relocate("Strongly Negative",
-                    "Quite Negative",
-                    "A Bit Negative",
-                    "Neutral",
-                    )
-  combined_data <- combined_data %>% 
-    dplyr::mutate(type = dplyr::case_when(type == "all responses" ~ "All/nSurvey Responses",
-                                          TRUE ~ stringr::str_to_sentence(type)),
-                  attribute = dplyr::case_when(type == "Match" & attribute == "Yes" ~ "Group\nrecorded",
-                                               type == "Match" & attribute == "No" ~ "Group not\nrecorded",
-                                               TRUE ~ attribute)
-                  )
+    dplyr::relocate(
+      "Strongly Negative",
+      "Quite Negative",
+      "A Bit Negative",
+      "Neutral",
+    )
+  combined_data <- combined_data %>%
+    dplyr::mutate(
+      type = dplyr::case_when(
+        type == "all responses" ~ "All/nSurvey Responses",
+        TRUE ~ stringr::str_to_sentence(type)
+      ),
+      attribute = dplyr::case_when(
+        type == "Match" & attribute == "Yes" ~ "Group\nrecorded",
+        type == "Match" & attribute == "No" ~ "Group not\nrecorded",
+        TRUE ~ attribute
+      )
+    )
 
 
   fig_1 <- HH::likert(
@@ -118,7 +124,7 @@ plot_fig_1 <- function(speciesdata) {
     # h.resizePanels = c(1, 2, 2.3, 2, 2)
     h.resizePanels = c(1, 2, 2)
   )
-  
+
   return(fig_1)
 }
 

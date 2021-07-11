@@ -31,10 +31,15 @@ strings_as_factors <- function(data) {
 
   data <- data %>%
     dplyr::mutate(climate_treatment = factor(.data$ClimateEq,
-                                             levels = c(0, 1),
-                                             labels = c("Control",
-                                                        "Climate Change Prompt"))) %>%
+      levels = c(0, 1),
+      labels = c(
+        "Control",
+        "Climate Change Prompt"
+      )
+    )) %>%
     dplyr::select(-.data$ClimateEq)
 
+  data <- rename_wildlife_sector(data)
+  data <- format_respondents_postcode(data)
   return(data)
 }

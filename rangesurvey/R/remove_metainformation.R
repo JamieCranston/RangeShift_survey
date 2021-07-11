@@ -17,6 +17,6 @@ remove_meta_info <- function(data) {
       "datestamp"
     ))
   )
-  
+
   return(data)
 }

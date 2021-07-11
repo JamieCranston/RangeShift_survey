@@ -13,6 +13,6 @@ check_respondents_ages <- function(data) {
       T ~ NA_real_
     )) %>%
     dplyr::select(-.data$GDemographics01)
-  
+
   return(data)
 }

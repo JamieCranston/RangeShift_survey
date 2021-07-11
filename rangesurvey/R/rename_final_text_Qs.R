@@ -11,6 +11,6 @@ rename_final_text_Qs <- function(data) {
       "implications_of_climate_change" = "FinalClimateCheck",
       "final_open_response_q" = "GFreeFromFinal"
     )
-  
+
   return(data)
 }

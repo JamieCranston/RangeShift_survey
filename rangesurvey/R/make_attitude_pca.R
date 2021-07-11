@@ -14,10 +14,10 @@ make_attitude_pca <- function(data = management_responses_to_model) {
       graph = TRUE,
       ncp = Inf
     )
-  
+
   data.hcpc <- FactoMineR::HCPC(data.mca,
-                                nb.clust = 4
+    nb.clust = 4
   )
-  
+
   return(data.hcpc)
 }

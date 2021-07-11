@@ -75,12 +75,12 @@ recolour_species_pics <- function(pic, colour) {
 #' @return theme for ggplots
 #' @export
 load_theme <- function(custom) {
-  if(missing(custom)){
-  theme <- ggplot2::theme_classic()+
-    ggplot2::theme()
-  return(theme)
+  if (missing(custom)) {
+    theme <- ggplot2::theme_classic() +
+      ggplot2::theme()
+    return(theme)
   }
-  if(!"theme" %in% class(custom)){
+  if (!"theme" %in% class(custom)) {
     stop("custom must be a ggplot theme")
   }
   custom_theme <- custom

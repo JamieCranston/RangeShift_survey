@@ -58,11 +58,15 @@ pivot_species_long <- function(data) {
   }
   )
 
-  data <- purrr::reduce(species_stack,
-                        dplyr::bind_rows)
+  data <- purrr::reduce(
+    species_stack,
+    dplyr::bind_rows
+  )
   data <- data %>%
-    dplyr::mutate("seen" = dplyr::coalesce(.data$`01[SQ001]`,
-                                           .data$`01[SQ002]`)) %>%
+    dplyr::mutate("seen" = dplyr::coalesce(
+      .data$`01[SQ001]`,
+      .data$`01[SQ002]`
+    )) %>%
     dplyr::select(
       -"01[SQ001]",
       -"01[SQ002]"

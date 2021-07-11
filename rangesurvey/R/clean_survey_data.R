@@ -7,8 +7,8 @@
 clean_survey_data <- function(data) {
   clean_data <- data %>%
     remove_pilot_responses() %>%
-    remove_incomplete_surveys() %>% 
-  remove_meta_info() %>%
+    remove_incomplete_surveys() %>%
+    remove_meta_info() %>%
     remove_response_times() %>%
     remove_instructions()
   return(clean_data)
