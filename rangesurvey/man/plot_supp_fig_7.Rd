@@ -2,9 +2,9 @@
 % Please edit documentation in R/plot_supp_fig_7.R
 \name{plot_supp_fig_7}
 \alias{plot_supp_fig_7}
-\title{Title}
+\title{plot_supp_fig_7}
 \usage{
-plot_supp_fig_7(data = respondent_table_clean)
+plot_supp_fig_7(data)
 }
 \arguments{
 \item{data}{cleaned respondent data}
@@ -13,5 +13,5 @@ plot_supp_fig_7(data = respondent_table_clean)
 supplementary figure 7
 }
 \description{
-Title
+plot_supp_fig_7
 }

@@ -4,10 +4,12 @@
 \alias{clean_species_frame}
 \title{clean_species_frame}
 \usage{
-clean_species_frame(data)
+clean_species_frame(data, respondent_frame)
 }
 \arguments{
 \item{data}{species_frame}
+
+\item{respondent_frame}{respondent_frame}
 }
 \value{
 species_frame_cleaned

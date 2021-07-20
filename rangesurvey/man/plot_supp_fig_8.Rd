@@ -4,13 +4,13 @@
 \alias{plot_supp_fig_8}
 \title{Title}
 \usage{
-plot_supp_fig_8(data = management_attitudes_model)
+plot_supp_fig_8(data)
 }
 \arguments{
-\item{data}{brms model object of a multivariate model}
+\item{data}{brms model object of the management multivariate model}
 }
 \value{
-ggplot
+supplementary figure 8 (ggplot)
 }
 \description{
 Title

@@ -3,7 +3,7 @@
 #'
 #' @param data survey_species_responses
 #'
-#' @return
+#' @return dataframe (nrow =  unique(respondent) x length(species) (16))
 #' @export
 #'
 pivot_species_long <- function(data) {
@@ -85,5 +85,6 @@ pivot_species_long <- function(data) {
 
   data$species <- as.factor(data$species)
   data$seen <- as.factor(data$seen)
+  data$id <- as.factor(data$id)
   return(data)
 }

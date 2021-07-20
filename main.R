@@ -44,26 +44,27 @@ management_responses_to_model <- get_attitude_models_data(species_frame,
 # visualise model input data ----------------------------------------------
 
 # number of responses by species
-survey_responses_to_model %>%
+species_responses_to_model %>%
   dplyr::count(species)
 
-plot_fig_1(survey_responses_to_model)
-plot_fig_3(survey_responses_to_model)
+plot_fig_1(species_frame)
+plot_fig_3(species_frame)
 
 # build models for respondents' attitudes to species and management -------
 
 species_attitude_model <-
-  model_species_attitudes(species_data = species_responses_to_model,
+  model_species_attitudes(species_responses_to_model,
                           respondent_data = respondent_table_clean)
 
 management_attitudes_model <-
-  model_management_attitudes(species_data = management_responses_to_model,
+  model_management_attitudes(management_responses_to_model,
                              respondent_data = respondent_table_clean)
 
 # visualise model outputs -------------------------------------------------
 
-plot_fig_2a()
-plot_fig_2b()
+plot_fig_2a(model = species_attitude_model)
+plot_fig_2b(model = species_attitude_model, 
+            config = config)
 
 
 
@@ -72,7 +73,7 @@ plot_fig_2b()
 # plot_supp_table_2_figures_insets()
 # plot_supp_table_3_figures_insets()
 
-#TODO save_output_figures()
+#TODO save_output_figures() ---------------------------
 
 #TODO render supplementary figures doc------------------
 

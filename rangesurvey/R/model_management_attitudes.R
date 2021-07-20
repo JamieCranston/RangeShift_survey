@@ -1,20 +1,20 @@
 #' model_management_attitudes
 #'
-#' @param species_data cleaned species responses data
+#' @param attitudes_to_management management attitidues to model
 #' @param respondent_data cleaned respondent data
 #'
 #' @return brms model object of predicted attitudes to management
 #' @importFrom brms brm set_prior categorical
 #' @export
 #'
-model_management_attitudes <- function(species_data = management_responses_to_model,
-                                       respondent_data = respondent_table_clean) {
+model_management_attitudes <- function(attitudes_to_management,
+                                       respondent_data) {
   model_input_data <- dplyr::left_join(
-    species_data,
+    attitudes_to_management,
     respondent_data
   ) %>%
     dplyr::select(
-      .data$.,
+      .,
       .data$attitude_to_species,
       .data$Remove,
       .data$Mitigate,
@@ -31,7 +31,8 @@ model_management_attitudes <- function(species_data = management_responses_to_mo
       .data$scaled_age,
       .data$scaled_years_recording,
       .data$education,
-      .data$climate_treatment
+      .data$climate_treatment,
+      .data$awareness_numeric
     )
 
   # 1147

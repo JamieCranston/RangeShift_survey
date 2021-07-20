@@ -4,7 +4,7 @@
 \alias{plot_supp_fig_6}
 \title{plot_supp_fig_6}
 \usage{
-plot_supp_fig_6(speciesdata = survey_responses_to_model)
+plot_supp_fig_6(speciesdata)
 }
 \arguments{
 \item{speciesdata}{cleaned attitude to species responses}

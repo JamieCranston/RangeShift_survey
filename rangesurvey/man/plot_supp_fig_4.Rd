@@ -4,7 +4,7 @@
 \alias{plot_supp_fig_4}
 \title{plot_supp_fig_4}
 \usage{
-plot_supp_fig_4(data = respondent_table_clean)
+plot_supp_fig_4(data)
 }
 \arguments{
 \item{data}{cleaned respondent data table}

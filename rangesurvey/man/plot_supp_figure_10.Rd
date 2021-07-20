@@ -4,7 +4,7 @@
 \alias{plot_supp_figure_10}
 \title{plot_supp_figure_10}
 \usage{
-plot_supp_figure_10(data = management_responses_to_model)
+plot_supp_figure_10(data)
 }
 \arguments{
 \item{data}{management_responses_to_model}

@@ -10,7 +10,7 @@ check_respondents_ages(data)
 \item{data}{respondent character table}
 }
 \value{
-
+respondent data with a column added for respondent age
 }
 \description{
 check_respondents_ages

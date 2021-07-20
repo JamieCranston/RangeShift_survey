@@ -3,7 +3,7 @@
 #'
 #' @param speciesdata survey_species_responses
 #'
-#' @return
+#' @return figure 1 (likert lattice plot)
 #' @importFrom HH likert likertColor
 #' @export
 #'
@@ -34,7 +34,7 @@ plot_fig_1 <- function(speciesdata) {
     data <- X %>%
       dplyr::summarise(Count = dplyr::n()) %>%
       tidyr::pivot_wider(
-        .data$.,
+        .,
         names_from = .data$attitude_to_species,
         values_from = .data$Count,
         values_fill = list(Count = 0)

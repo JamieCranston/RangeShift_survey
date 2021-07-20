@@ -1,12 +1,12 @@
 #' Title
 #'
-#' @param data brms model object of a multivariate model
+#' @param data brms model object of the management multivariate model
 #'
-#' @return ggplot
+#' @return supplementary figure 8 (ggplot)
 #' @import ggplot2
 #' @import cubelyr
 #' @export
-plot_supp_fig_8 <- function(data = management_attitudes_model) {
+plot_supp_fig_8 <- function(data) {
   data <- readRDS("D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/Management_Condensed.Rds")
 
   predicted_management_attitudes_by_id <- brms::posterior_predict(data,
@@ -32,15 +32,16 @@ plot_supp_fig_8 <- function(data = management_attitudes_model) {
 
   predicted_management_attitudes_quantiles <- predicted_management_attitudes_quantiles %>%
     cubelyr::as.tbl_cube() %>%
-    cubelyr::as_tibble.tbl_cube() %>%
-    tidyr::pivot_wider(.data$.,
-      names_from = "proportion",
-      values_from = .data$`.`
-    ) %>%
+    dplyr::as_tibble() %>%
     dplyr::mutate(attitude = factor(.data$attitude,
       levels = c(2, 1, 3),
       labels = c("Anti", "Neutral", "Pro")
-    ))
+    )) %>%
+    #as_tibble.tbl_cube()
+    tidyr::pivot_wider(.data$.,
+      names_from = "proportion",
+      values_from = .data$`.`
+    ) 
 
   predicted_management_attitudes_quantiles <- predicted_management_attitudes_quantiles %>%
     dplyr::mutate(management_option = forcats::fct_recode(as.factor(.data$management_option),
@@ -99,16 +100,17 @@ plot_supp_fig_8 <- function(data = management_attitudes_model) {
 
 #' @title plot_supp_fig_9
 #'
-#' @param data Survey responses to management (model input)
 #' @param model Management attitudes brms model
 #'
-#' @return
+#' @return supplementary figure 9
 #' @import ggplot2
-#' @export
-plot_supp_fig_9 <- function(data = management_responses_to_model,
-                            model = management_attitudes_model) {
+#' @export 
+plot_supp_fig_9 <- function(model) {
+  
   model <- readRDS("testmodel.Rds")
 
+  model_input_data <- model$data
+  
   CE <- brms::conditional_effects(
     x = model,
     categorical = TRUE,
@@ -164,7 +166,7 @@ plot_supp_fig_9 <- function(data = management_responses_to_model,
 
   PredictionData$MO <- forcats::fct_relabel(PredictionData$MO, ~ gsub(x = ., replacement = "", pattern = "\\..*"))
 
-  Ns <- data %>%
+  Ns <-  model_input_data %>%
     tidyr::pivot_longer(
       cols = c(.data$Accept, .data$Adapt, .data$Mitigate, .data$Remove, .data$Support),
       names_to = "MO"

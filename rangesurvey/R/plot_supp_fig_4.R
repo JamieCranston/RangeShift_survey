@@ -5,7 +5,7 @@
 #' @return faceted plot of respondent demographics
 #' @export
 #'
-plot_supp_fig_4 <- function(data = respondent_table_clean) {
+plot_supp_fig_4 <- function(data) {
 
   #   tiff(
   #   file = "Figures/SummaryDemographics.tif",

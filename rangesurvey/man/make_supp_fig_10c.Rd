@@ -4,10 +4,10 @@
 \alias{make_supp_fig_10c}
 \title{make_supp_fig_10c}
 \usage{
-make_supp_fig_10c(data = data.hcpc)
+make_supp_fig_10c(pca_output)
 }
 \arguments{
-\item{data}{pca of management attitudes}
+\item{pca_output}{pca of management attitudes}
 }
 \value{
 lineplot of attitudes to different management options at the respondent level (facetted by cluster)

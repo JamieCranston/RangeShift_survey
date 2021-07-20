@@ -10,7 +10,7 @@ plot_fig_3(speciesdata)
 \item{speciesdata}{attitudes to species management dataset}
 }
 \value{
-
+figure 3 (likert lattice plot)
 }
 \description{
 plot_fig_3

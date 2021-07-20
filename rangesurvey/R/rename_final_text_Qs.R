@@ -2,7 +2,7 @@
 #'
 #' @param data respondent_table_clean
 #'
-#' @return
+#' @return respondent data with a two final open text question columns renamed.
 #' @export
 #'
 rename_final_text_Qs <- function(data) {

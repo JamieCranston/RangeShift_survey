@@ -1,11 +1,12 @@
-#' Title
+#' plot_supp_fig_7
 #'
 #' @param data cleaned respondent data
 #'
 #' @return supplementary figure 7
 #' @import ggplot2
 #' @export
-plot_supp_fig_7 <- function(data = respondent_table_clean) {
+plot_supp_fig_7 <- function(data) {
+  
   data <- fill_imputed_species_group(data)
 
   data$Other <- ifelse(data$Diptera == "Yes", "Yes", data$Other)

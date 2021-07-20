@@ -4,7 +4,7 @@
 \alias{make_attitude_pca}
 \title{make_attitude_pca}
 \usage{
-make_attitude_pca(data = management_responses_to_model)
+make_attitude_pca(data)
 }
 \arguments{
 \item{data}{respondent attitudes to management to model}

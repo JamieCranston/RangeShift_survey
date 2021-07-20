@@ -4,18 +4,13 @@
 \alias{plot_supp_fig_9}
 \title{plot_supp_fig_9}
 \usage{
-plot_supp_fig_9(
-  data = management_responses_to_model,
-  model = management_attitudes_model
-)
+plot_supp_fig_9(model)
 }
 \arguments{
-\item{data}{Survey responses to management (model input)}
-
 \item{model}{Management attitudes brms model}
 }
 \value{
-
+supplementary figure 9
 }
 \description{
 plot_supp_fig_9

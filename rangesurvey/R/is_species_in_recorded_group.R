@@ -3,11 +3,13 @@
 #' @param speciesdata cleaned species responses data
 #' @param respondentdata cleaned respondent data
 #'
-#' @return
+#' @return respondent data with a column added for match which is positive when
+#'   a respondent records the species group of the species they were shown in
+#'   the survey question and negative where not.
 #' @export
-#'
+#' 
 is_species_in_recorded_group <- function(speciesdata,
-                                         respondentdata = respondent_character_table_clean) {
+                                         respondentdata) {
   vertnames <- c(
     "Egarzetta",
     "Pleucorodia",

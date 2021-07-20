@@ -4,13 +4,10 @@
 \alias{model_management_attitudes}
 \title{model_management_attitudes}
 \usage{
-model_management_attitudes(
-  species_data = management_responses_to_model,
-  respondent_data = respondent_table_clean
-)
+model_management_attitudes(attitudes_to_management, respondent_data)
 }
 \arguments{
-\item{species_data}{cleaned species responses data}
+\item{attitudes_to_management}{management attitidues to model}
 
 \item{respondent_data}{cleaned respondent data}
 }

@@ -1,43 +1,43 @@
-#' predict_marginal_seen_and_match
+#' predict_species_marginal_effects
 #'
 #' @param data  input data for species attitude brms model object
 #' @param model species attitude brms model object
 #'
-#' @return marginal predictions for seen and match
+#' @return marginal predictions for species
 #' @export
-predict_marginal_seen_and_match <- function(data = species_responses_to_model,
-                                            model = species_attitude_model) {
+predict_species_marginal_effects <- function(data,
+                                             model) {
   newdata <- expand.grid(
-    Species = unique(data$Species),
+    species = unique(data$species),
     id = "Mean",
-    Seen = NA,
-    WildlifeSector = NA,
-    Involvement = NA,
-    ClimateEq = NA,
-    Education = NA,
-    Gender = NA,
-    ScaleAge = 0,
-    ScaleYR = 0,
-    Match = NA
+    seen = NA,
+    wildlife_sector = NA,
+    involvement = NA,
+    climate_treatment = NA,
+    education = NA,
+    gender = NA,
+    scaled_age = 0,
+    scaled_years_recording = 0,
+    match = NA
   )
-
+  
   # Generate predictions for the probability of each response at each level of the random factor.
   Species <- stats::predict(model,
-    newdata = newdata,
-    re_formula = NULL,
-    probs = c(0.025, 0.975),
-    allow_new_levels = T
+                            newdata = newdata,
+                            re_formula = NULL,
+                            probs = c(0.025, 0.975),
+                            allow_new_levels = T
   )
   # Add Species names to rows
-  row.names(Species) <- unique(data$Species)
-
+  row.names(Species) <- unique(data$species)
+  
   # Order by Probability of response being positive and coerce to dataframe
   Species <- data.frame(Species[order(Species[, "P(Y = Positive)"], decreasing = T), ])
-
+  
   # Add Latin name to dataframe and remove rownames.
   Species$LName <- gsub(pattern = "^(.{1})(.*)$", replacement = "\\1. \\2", x = row.names(Species))
   row.names(Species) <- NULL
-
+  
   # Add in information on taxonomic group (if time convert to lookup table for safety)
   Species$Group <- c(
     rep("Bird", 6),
@@ -50,4 +50,6 @@ predict_marginal_seen_and_match <- function(data = species_responses_to_model,
     rep("Shieldbug", 2),
     "Bee / Wasp"
   )
+  
+  return(Species)
 }

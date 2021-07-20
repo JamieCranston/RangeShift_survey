@@ -10,7 +10,7 @@ load_config(config = "config.yaml")
 \item{config}{path to config}
 }
 \value{
-
+config (list - see config.yaml for items)
 }
 \description{
 load_config

@@ -8,6 +8,8 @@ get_attitude_models_data(data, model = c("species", "management"))
 }
 \arguments{
 \item{data}{survey_responses_to_model}
+
+\item{model}{either species or management depending on which data is needed}
 }
 \value{
 management_responses_to_model

@@ -10,7 +10,7 @@ plot_fig_1(speciesdata)
 \item{speciesdata}{survey_species_responses}
 }
 \value{
-
+figure 1 (likert lattice plot)
 }
 \description{
 plot_fig_1

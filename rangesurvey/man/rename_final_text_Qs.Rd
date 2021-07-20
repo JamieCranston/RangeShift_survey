@@ -10,7 +10,7 @@ rename_final_text_Qs(data)
 \item{data}{respondent_table_clean}
 }
 \value{
-
+respondent data with a two final open text question columns renamed.
 }
 \description{
 rename_final_text_Qs

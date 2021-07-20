@@ -7,10 +7,11 @@
 check_n_scale_age_n_years_recording(data)
 }
 \arguments{
-\item{data}{}
+\item{data}{respondent data}
 }
 \value{
-
+respondent data with a column added for mean centred and scaled years
+  recording and respondent age
 }
 \description{
 check_n_scale_age_n_years_recording

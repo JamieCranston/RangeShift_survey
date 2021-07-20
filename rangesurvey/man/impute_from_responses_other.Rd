@@ -12,16 +12,17 @@ impute_from_responses_other(
 )
 }
 \arguments{
-\item{data}{}
+\item{data}{respondent data}
 
-\item{config}{}
+\item{config}{config file needed for links to validation sheets}
 
-\item{quiet}{}
+\item{quiet}{#TODO}
 
-\item{view_imputations}{}
+\item{view_imputations}{#TODO}
 }
 \value{
-
+respondent data with a columns added for questions where imputations
+  to data from open text fields were required.
 }
 \description{
 impute_from_responses_other

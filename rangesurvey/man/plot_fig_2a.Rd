@@ -4,10 +4,10 @@
 \alias{plot_fig_2a}
 \title{plot_fig_2a}
 \usage{
-plot_fig_2a(data)
+plot_fig_2a(model)
 }
 \arguments{
-\item{data}{brms marginal effects objects}
+\item{model}{species_attitude_model}
 }
 \value{
 figure 2(a) - a ggplot of the marginal effects of familiarity

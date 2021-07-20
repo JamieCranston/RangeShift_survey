@@ -1,13 +1,17 @@
 #' plot_fig_2b
 #'
-#' @param data species effects from brms
+#' @param model species attitudes model
 #' @param config config
-#' @return
+#' @return figure 2(b) ggplot
 #' @export
 #'
-plot_fig_2b <- function(data, config) {
+plot_fig_2b <- function(model,
+                        config) {
+  
   species_rasters <- create_species_rasters(config)
 
+  data <- predict_species_marginal_effects(data = model$data,
+                                          model = model)
   species_effect_plot <-
     ggplot(
       data,
@@ -24,112 +28,112 @@ plot_fig_2b <- function(data, config) {
       nudge_y = 0.01
     ) +
     annotation_raster(
-      Wasp,
+      species_rasters$wasp,
       xmin = 0.6,
       xmax = 1.5,
       ymin = 0.925,
       ymax = 0.975
     ) +
     annotation_raster(
-      Bee,
+      species_rasters$bee,
       xmin = 6.6,
       xmax = 7.5,
       ymin = 0.925,
       ymax = 0.975
     ) +
     annotation_raster(
-      Dragonfly,
+      species_rasters$dragonfly,
       xmin = 9.6,
       xmax = 10.5,
       ymin = 0.925,
       ymax = 0.975
     ) +
     annotation_raster(
-      Zygoptera,
+      species_rasters$zygoptera,
       xmin = 7.6,
       xmax = 8.5,
       ymin = 0.925,
       ymax = 0.975
     ) +
     annotation_raster(
-      Shieldbug,
+      species_rasters$shieldbug,
       xmin = 2.6,
       xmax = 3.5,
       ymin = 0.92,
       ymax = 0.975
     ) +
     annotation_raster(
-      Shieldbug,
+      species_rasters$shieldbug,
       xmin = 1.6,
       xmax = 2.5,
       ymin = 0.92,
       ymax = 0.975
     ) +
     annotation_raster(
-      Moth,
+      species_rasters$moth,
       xmin = 4.6,
       xmax = 5.5,
       ymin = 0.935,
       ymax = 0.975
     ) +
     annotation_raster(
-      Moth,
+      species_rasters$moth,
       xmin = 3.6,
       xmax = 4.5,
       ymin = 0.935,
       ymax = 0.975
     ) +
     annotation_raster(
-      Egarz,
+      species_rasters$LittleEgret,
       xmin = 8.6,
       xmax = 9.5,
       ymin = 0.925,
       ymax = 0.975
     ) +
     annotation_raster(
-      Egarz,
+      species_rasters$LittleEgret,
       xmin = 5.6,
       xmax = 6.5,
       ymin = 0.925,
       ymax = 0.975
     ) +
     annotation_raster(
-      Spoonbill,
+      species_rasters$Spoonbill,
       xmin = 15.5,
       xmax = 16.4,
       ymin = 0.925,
       ymax = 0.975
     ) +
     annotation_raster(
-      Imin,
+      species_rasters$LittleHeron,
       xmin = 14.65,
       xmax = 15.35,
       ymin = 0.93,
       ymax = 0.96
     ) +
     annotation_raster(
-      Stilt,
+      species_rasters$FakeStilt,
       xmin = 13.6,
       xmax = 14.5,
       ymin = 0.925,
       ymax = 0.975
     ) +
     annotation_raster(
-      Egarz,
+      species_rasters$LittleEgret,
       xmin = 12.6,
       xmax = 13.5,
       ymin = 0.925,
       ymax = 0.975
     ) +
     annotation_raster(
-      Egarz,
+      species_rasters$LittleEgret,
       xmin = 11.6,
       xmax = 12.5,
       ymin = 0.925,
       ymax = 0.975
     ) +
     annotation_raster(
-      Gibis,
+      species_rasters$FakeIbis,
       xmin = 10.6,
       xmax = 11.5,
       ymin = 0.925,

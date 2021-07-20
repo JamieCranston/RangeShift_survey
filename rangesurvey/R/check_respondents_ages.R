@@ -2,7 +2,7 @@
 #'
 #' @param data respondent character table
 #'
-#' @return
+#' @return respondent data with a column added for respondent age
 #' @export
 
 check_respondents_ages <- function(data) {

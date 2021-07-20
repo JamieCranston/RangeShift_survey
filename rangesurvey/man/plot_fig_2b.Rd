@@ -4,15 +4,15 @@
 \alias{plot_fig_2b}
 \title{plot_fig_2b}
 \usage{
-plot_fig_2b(data, config)
+plot_fig_2b(model, config)
 }
 \arguments{
-\item{data}{species effects from brms}
+\item{model}{species attitudes model}
 
 \item{config}{config}
 }
 \value{
-
+figure 2(b) ggplot
 }
 \description{
 plot_fig_2b

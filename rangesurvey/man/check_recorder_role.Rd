@@ -12,7 +12,7 @@ check_recorder_role(data, config)
 \item{config}{config file (for paths to validated recorder roles csv)}
 }
 \value{
-
+respondent data with a column added for involvement using imputed recorder role from the other response option (text field).
 }
 \description{
 check_recorder_role

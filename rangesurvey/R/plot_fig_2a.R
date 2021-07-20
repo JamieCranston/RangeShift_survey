@@ -1,12 +1,24 @@
 #' plot_fig_2a
 #'
-#' @param data brms marginal effects objects
-#'
+#' @param model species_attitude_model
 #' @return figure 2(a) - a ggplot of the marginal effects of familiarity
 #' @import ggplot2
 #' @export
 #'
-plot_fig_2a <- function(data) {
+plot_fig_2a <- function(model) {
+  
+  cond_effs <- brms::conditional_effects(x = model,
+                                    categorical = TRUE,
+                                    effects = c("match", "seen"),
+                                    conditions = data.frame(seen = c("No",
+                                                                     "Yes"),
+                                                            match = c("No",
+                                                                      "Yes"))
+                                    )
+  data <- plot(cond_effs,
+                         plot = FALSE,
+                         ask = FALSE)[[1]]$data
+  
   effects_of_familiarity_plots <- ggplot(data) +
     geom_pointrange(aes(
       x = .data$cats__,
@@ -23,7 +35,7 @@ plot_fig_2a <- function(data) {
       colour = .data$cats__
     )) +
     facet_grid(
-      ~ Match + Seen,
+      ~ match + seen,
       labeller = function(labels) {
         list(
           c(

@@ -5,9 +5,13 @@
 #' @return pca object
 #' @export
 #'
-make_attitude_pca <- function(data = management_responses_to_model) {
+make_attitude_pca <- function(data) {
   data.mca <- data %>%
-    dplyr::select(-.data$id, -.data$species, -.data$attitude_to_species, -.data$seen, -.data$match) %>%
+    dplyr::select(-.data$id,
+                  -.data$species,
+                  -.data$attitude_to_species,
+                  -.data$seen,
+                  -.data$match) %>%
     stats::na.omit() %>%
     FactoMineR::MCA(
       X = .data$.,

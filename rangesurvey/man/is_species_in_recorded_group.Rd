@@ -4,10 +4,7 @@
 \alias{is_species_in_recorded_group}
 \title{is_species_in_recorded_group}
 \usage{
-is_species_in_recorded_group(
-  speciesdata,
-  respondentdata = respondent_character_table_clean
-)
+is_species_in_recorded_group(speciesdata, respondentdata)
 }
 \arguments{
 \item{speciesdata}{cleaned species responses data}
@@ -15,7 +12,9 @@ is_species_in_recorded_group(
 \item{respondentdata}{cleaned respondent data}
 }
 \value{
-
+respondent data with a column added for match which is positive when
+  a respondent records the species group of the species they were shown in
+  the survey question and negative where not.
 }
 \description{
 is_species_in_recorded_group

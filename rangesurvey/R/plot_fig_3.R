@@ -2,7 +2,7 @@
 #'
 #' @param speciesdata attitudes to species management dataset
 #'
-#' @return
+#' @return figure 3 (likert lattice plot)
 #' @importFrom HH likert likertColor
 #' @export
 #'

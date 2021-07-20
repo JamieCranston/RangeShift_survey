@@ -10,7 +10,7 @@ pivot_species_long(data)
 \item{data}{survey_species_responses}
 }
 \value{
-
+dataframe (nrow =  unique(respondent) x length(species) (16))
 }
 \description{
 pivot_species_long

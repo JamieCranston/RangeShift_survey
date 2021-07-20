@@ -12,7 +12,8 @@ check_species_shown_by_id(speciesdata, respondentdata)
 \item{respondentdata}{cleaned  respondent data}
 }
 \value{
-
+a dataframe, containing rows only for species that were in fact shown
+  to respondents in the survey.
 }
 \description{
 check_species_shown_by_id

@@ -12,7 +12,7 @@ recolour_species_pics(pic, colour)
 \item{colour}{colour in rgb format (i.e. vector length 3)}
 }
 \value{
-
+jpeg object in r (pic), recoloured to colour (colour)
 }
 \description{
 recolour_species_pics

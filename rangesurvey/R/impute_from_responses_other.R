@@ -1,11 +1,12 @@
 #' impute_from_responses_other
 #'
-#' @param data
-#' @param config
-#' @param quiet
-#' @param view_imputations
+#' @param data respondent data
+#' @param config config file needed for links to validation sheets
+#' @param quiet #TODO
+#' @param view_imputations #TODO
 #'
-#' @return
+#' @return respondent data with a columns added for questions where imputations
+#'   to data from open text fields were required.
 #' @export
 impute_from_responses_other <- function(data, config,
                                         quiet = TRUE,

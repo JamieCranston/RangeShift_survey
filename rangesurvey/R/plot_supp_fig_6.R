@@ -6,9 +6,10 @@
 #' @return supplementary figure 6
 #' @importFrom HH likert likertColor
 #' @export
-plot_supp_fig_6 <- function(speciesdata = survey_responses_to_model) {
+plot_supp_fig_6 <- function(speciesdata) {
   data <- speciesdata %>%
-    dplyr::select(.data$species, .data$attitude_to_species) %>%
+    dplyr::select(.data$species,
+                  .data$attitude_to_species) %>%
     stats::na.omit() %>%
     dplyr::group_by(.data$., .data$species, .data$attitude_to_species) %>%
     dplyr::count() %>%

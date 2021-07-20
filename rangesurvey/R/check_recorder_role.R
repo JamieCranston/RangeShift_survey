@@ -3,7 +3,7 @@
 #' @param data respondent character table
 #' @param config config file (for paths to validated recorder roles csv)
 #'
-#' @return
+#' @return respondent data with a column added for involvement using imputed recorder role from the other response option (text field).
 #' @export
 #'
 check_recorder_role <- function(data, config) {

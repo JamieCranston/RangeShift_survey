@@ -4,13 +4,10 @@
 \alias{model_species_attitudes}
 \title{model_species_attitude}
 \usage{
-model_species_attitudes(
-  species_data = species_responses_to_model,
-  respondent_data = respondent_character_table_clean
-)
+model_species_attitudes(attitudes_to_species, respondent_data)
 }
 \arguments{
-\item{species_data}{cleaned species responses data}
+\item{attitudes_to_species}{attitudes to species}
 
 \item{respondent_data}{cleaned respondent data}
 }

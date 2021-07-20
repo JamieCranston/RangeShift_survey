@@ -7,10 +7,13 @@
 check_and_score_awareness(data, config)
 }
 \arguments{
-\item{data}{}
+\item{data}{respondent data}
+
+\item{config}{config file needed for links to validation sheets}
 }
 \value{
-
+respondent data with a column added for respondent's awareness of
+  range-shifting species
 }
 \description{
 check_and_score_awareness

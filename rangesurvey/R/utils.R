@@ -1,7 +1,7 @@
 
 #' @title load_config
 #' @param config path to config
-#' @return
+#' @return config (list - see config.yaml for items)
 #' @export
 
 load_config <- function(config = "config.yaml") {
@@ -60,7 +60,7 @@ scale_numerics <- function(data) {
 #' @param pic jpeg object in r (array)
 #' @param colour colour in rgb format (i.e. vector length 3)
 #'
-#' @return
+#' @return jpeg object in r (pic), recoloured to colour (colour)
 #' @export
 #'
 recolour_species_pics <- function(pic, colour) {

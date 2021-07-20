@@ -1,20 +1,20 @@
 #' model_species_attitude
 #'
-#' @param species_data cleaned species responses data
+#' @param  attitudes_to_species attitudes to species
 #' @param respondent_data cleaned respondent data
 #'
 #' @return brms model object of predicted attitudes to management
 #' @import brms
 #' @export
 
-model_species_attitudes <- function(species_data = species_responses_to_model,
-                                    respondent_data = respondent_character_table_clean) {
+model_species_attitudes <- function(attitudes_to_species,
+                                    respondent_data) {
   model_input_data <- dplyr::left_join(
-    species_data,
+    attitudes_to_species,
     respondent_data
   ) %>%
     dplyr::select(
-      .data$.,
+    .,
       .data$attitude_to_species,
       .data$species,
       .data$id,
