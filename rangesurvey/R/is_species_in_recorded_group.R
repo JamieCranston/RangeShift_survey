@@ -7,7 +7,7 @@
 #'   a respondent records the species group of the species they were shown in
 #'   the survey question and negative where not.
 #' @export
-#' 
+#'
 is_species_in_recorded_group <- function(speciesdata,
                                          respondentdata) {
   vertnames <- c(

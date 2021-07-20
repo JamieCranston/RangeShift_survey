@@ -9,22 +9,29 @@ make_supp_fig_10c <- function(pca_output) {
   linedata <- pca_output$data.clust %>%
     dplyr::mutate(id = row.names(pca_output$data.clust)) %>%
     tidyr::pivot_longer(
-      cols = c("Remove",
-               "Mitigate",
-               "Accept",
-               "Adapt",
-               "Support"),
+      cols = c(
+        "Remove",
+        "Mitigate",
+        "Accept",
+        "Adapt",
+        "Support"
+      ),
       values_to = "Q"
     ) %>%
-    dplyr::mutate(Q = gsub(x = .data$Q,
-                           pattern = ".*_",
-                           replacement = "")) %>%
+    dplyr::mutate(Q = gsub(
+      x = .data$Q,
+      pattern = ".*_",
+      replacement = ""
+    )) %>%
     dplyr::mutate(name = factor(.data$name,
-                                levels = c("Support",
-                                           "Adapt",
-                                           "Accept",
-                                           "Mitigate",
-                                           "Remove")))
+      levels = c(
+        "Support",
+        "Adapt",
+        "Accept",
+        "Mitigate",
+        "Remove"
+      )
+    ))
 
 
   labels <- c(
@@ -43,7 +50,7 @@ make_supp_fig_10c <- function(pca_output) {
     )
   ) +
     geom_line(position = position_jitter(0.1, 0.1)) +
-    facet_wrap(~ clust,
+    facet_wrap(~clust,
       scales = "free_y",
       labeller = labeller(clust = labels)
     )

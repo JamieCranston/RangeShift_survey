@@ -6,7 +6,6 @@
 #' @import ggplot2
 #' @export
 plot_supp_fig_7 <- function(data) {
-  
   data <- fill_imputed_species_group(data)
 
   data$Other <- ifelse(data$Diptera == "Yes", "Yes", data$Other)

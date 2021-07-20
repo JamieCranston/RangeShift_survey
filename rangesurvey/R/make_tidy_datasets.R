@@ -19,12 +19,11 @@ make_tidy_datasets <- function(data,
       strings_as_factors()
     return(respondent_character_table)
   } else if (frame == "species") {
-    
     respondent_character_table <- data %>%
       get_respondent_characters() %>%
       rename_respondent_frame() %>%
       strings_as_factors()
-    
+
     survey_species_responses <- data %>%
       get_species_responses() %>%
       clean_species_frame(., respondent_frame = respondent_character_table)

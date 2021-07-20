@@ -7,11 +7,12 @@
 #'
 plot_fig_2b <- function(model,
                         config) {
-  
   species_rasters <- create_species_rasters(config)
 
-  data <- predict_species_marginal_effects(data = model$data,
-                                          model = model)
+  data <- predict_species_marginal_effects(
+    data = model$data,
+    model = model
+  )
   species_effect_plot <-
     ggplot(
       data,

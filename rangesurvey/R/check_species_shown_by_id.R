@@ -6,7 +6,7 @@
 #' @return a dataframe, containing rows only for species that were in fact shown
 #'   to respondents in the survey.
 #' @export
-#' 
+#'
 check_species_shown_by_id <- function(speciesdata,
                                       respondentdata) {
   species_shown <- respondentdata %>%

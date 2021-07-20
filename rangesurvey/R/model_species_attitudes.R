@@ -14,7 +14,7 @@ model_species_attitudes <- function(attitudes_to_species,
     respondent_data
   ) %>%
     dplyr::select(
-    .,
+      .,
       .data$attitude_to_species,
       .data$species,
       .data$id,

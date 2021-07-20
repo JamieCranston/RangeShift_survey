@@ -37,11 +37,11 @@ plot_supp_fig_8 <- function(data) {
       levels = c(2, 1, 3),
       labels = c("Anti", "Neutral", "Pro")
     )) %>%
-    #as_tibble.tbl_cube()
+    # as_tibble.tbl_cube()
     tidyr::pivot_wider(.data$.,
       names_from = "proportion",
       values_from = .data$`.`
-    ) 
+    )
 
   predicted_management_attitudes_quantiles <- predicted_management_attitudes_quantiles %>%
     dplyr::mutate(management_option = forcats::fct_recode(as.factor(.data$management_option),
@@ -104,13 +104,12 @@ plot_supp_fig_8 <- function(data) {
 #'
 #' @return supplementary figure 9
 #' @import ggplot2
-#' @export 
+#' @export
 plot_supp_fig_9 <- function(model) {
-  
   model <- readRDS("testmodel.Rds")
 
   model_input_data <- model$data
-  
+
   CE <- brms::conditional_effects(
     x = model,
     categorical = TRUE,
@@ -166,7 +165,7 @@ plot_supp_fig_9 <- function(model) {
 
   PredictionData$MO <- forcats::fct_relabel(PredictionData$MO, ~ gsub(x = ., replacement = "", pattern = "\\..*"))
 
-  Ns <-  model_input_data %>%
+  Ns <- model_input_data %>%
     tidyr::pivot_longer(
       cols = c(.data$Accept, .data$Adapt, .data$Mitigate, .data$Remove, .data$Support),
       names_to = "MO"

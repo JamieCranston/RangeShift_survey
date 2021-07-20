@@ -6,19 +6,26 @@
 #' @export
 #'
 plot_fig_2a <- function(model) {
-  
-  cond_effs <- brms::conditional_effects(x = model,
-                                    categorical = TRUE,
-                                    effects = c("match", "seen"),
-                                    conditions = data.frame(seen = c("No",
-                                                                     "Yes"),
-                                                            match = c("No",
-                                                                      "Yes"))
-                                    )
+  cond_effs <- brms::conditional_effects(
+    x = model,
+    categorical = TRUE,
+    effects = c("match", "seen"),
+    conditions = data.frame(
+      seen = c(
+        "No",
+        "Yes"
+      ),
+      match = c(
+        "No",
+        "Yes"
+      )
+    )
+  )
   data <- plot(cond_effs,
-                         plot = FALSE,
-                         ask = FALSE)[[1]]$data
-  
+    plot = FALSE,
+    ask = FALSE
+  )[[1]]$data
+
   effects_of_familiarity_plots <- ggplot(data) +
     geom_pointrange(aes(
       x = .data$cats__,
