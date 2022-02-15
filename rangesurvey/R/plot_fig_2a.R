@@ -26,6 +26,9 @@ plot_fig_2a <- function(model) {
     ask = FALSE
   )[[1]]$data
 
+  data$cats__ <- forcats::fct_relevel(data$cats__,c("Negative","Neutral","Positive"))
+  
+  
   effects_of_familiarity_plots <- ggplot(data) +
     geom_pointrange(aes(
       x = .data$cats__,

@@ -1,0 +1,75 @@
+---
+title: "supp_figures"
+author: "James Cranston"
+date: "20/07/2021"
+output: word_document
+params: 
+  figures: null
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+figures <- params$figures
+```
+
+```{r supp_fig_1}
+figures$supp_fig_1
+```
+
+Figure S1 - The posterior predictions from a model inferring the probability of being male or female from the survey data (95 % credible intervals are show in blue. The proportion of each category in the UK 2011 census is shown in red. As the red lines fall outside the credible intervals there is a greater than 95% chance that proportions are different.
+
+```{r supp_fig_2}
+figures$supp_fig_2
+```
+
+Figure S2 – The posterior predictions from a model inferring the probability of having a minimum educational qualification from the survey data (95 % credible intervals are show in blue. The proportion of each category in the UK 2011 census is shown in red. As the red lines fall outside the credible intervals for all except A-Levels there is a greater than 95% chance that proportions are different.
+
+```{r supp_fig_3}
+figures$supp_fig_3
+``` 
+
+Figure S3 – Number of respondents aware of and/or able to name a range-shifting species in the UK. 
+
+```{r supp_fig_4}
+figures$supp_fig_4
+``` 
+
+Figure S4 – Histograms (continuous variables) and barcharts (discrete variables) showing the distributions of the collected respondent 
+characteristics. 
+
+```{r supp_fig_5}
+figures$supp_fig_5
+```  
+
+
+Figure S5-  The frequency of respondents from each UK postcode outward code at the end of the survey, (yellow areas had no respondents)
+
+```{r supp_fig_6}
+figures$supp_fig_6
+```   
+
+Figure S6 - Likert plot of attitude responses for each species 
+
+```{r supp_fig_7}
+figures$supp_fig_7
+```    
+
+Figure S7 - The percentage of respondents recording each taxonomic group
+
+```{r supp_fig_8}
+figures$supp_fig_8
+```  
+
+Figure S8 - The posterior predictions for the probability of a respondent being neutral (grey), pro (blue) or anti (red) towards a given management option. Points show the median of the posterior and the error bars 95% credible intervals.
+
+```{r supp_fig_9}
+figures$supp_fig_9
+```
+
+Figure S9 – The posterior predictions for the probability of a respondent being neutral (grey), pro (Blue) or anti (red) towards a given management option (Y-axis facets) depending on their attitude to the species (X-axis facets). The shape and linetype shows the number of responses for each Attitude to Management option. Points show the median of the posterior and the error bars 95% credible intervals.
+
+```{r supp_fig_10}
+figures$supp_fig_10
+```   
+<!-- Figure S10 -Output of the MCA analysis, response cluster assignment across the first two dimensions of most explanatory power with a scree plot and hierarchical distance also shown (top-left). The loadings of each variable onto the first two dimensions (top-right). Line plot showing each respondents answers on management (by species) with jitter to allow visualisation.  -->

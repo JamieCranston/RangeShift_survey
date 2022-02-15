@@ -22,34 +22,31 @@ predict_species_marginal_effects <- function(data,
   )
 
   # Generate predictions for the probability of each response at each level of the random factor.
+  set.seed(333)
   Species <- stats::predict(model,
     newdata = newdata,
     re_formula = NULL,
     probs = c(0.025, 0.975),
-    allow_new_levels = T
+    allow_new_levels = TRUE
   )
   # Add Species names to rows
   row.names(Species) <- unique(data$species)
 
   # Order by Probability of response being positive and coerce to dataframe
-  Species <- data.frame(Species[order(Species[, "P(Y = Positive)"], decreasing = T), ])
+  Species <- data.frame(Species[order(Species[, "P(Y = Positive)"],
+                                      decreasing = TRUE), ])
 
   # Add Latin name to dataframe and remove rownames.
   Species$LName <- gsub(pattern = "^(.{1})(.*)$", replacement = "\\1. \\2", x = row.names(Species))
   row.names(Species) <- NULL
 
   # Add in information on taxonomic group (if time convert to lookup table for safety)
-  Species$Group <- c(
-    rep("Bird", 6),
-    "Dragonfly",
-    "Bird",
-    "Dragonfly",
-    "Bee / Wasp",
-    "Bird",
-    rep("Moth", 2),
-    rep("Shieldbug", 2),
-    "Bee / Wasp"
-  )
+  Species <- Species %>%
+    dplyr::mutate(Group = dplyr::case_when(LName ==  "A. affinis" | LName ==  "E. viridulum" ~ "Dragonfly",
+                                    LName ==  "P. kadenii" | LName ==  "C. algae" ~ "Moth",
+                                    LName ==  "B. hypnorum" | LName ==  "D. saxonica" ~ "Bee / Wasp",
+                                    LName ==  "R. nebulosa" | LName ==  "E. ornata" ~ "Shieldbug",
+                                    TRUE ~ "Bird" ))
 
   return(Species)
 }

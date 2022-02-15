@@ -13,7 +13,7 @@ plot_supp_fig_6 <- function(speciesdata) {
       .data$attitude_to_species
     ) %>%
     stats::na.omit() %>%
-    dplyr::group_by(.data$., .data$species, .data$attitude_to_species) %>%
+    dplyr::group_by(., .data$species, .data$attitude_to_species) %>%
     dplyr::count() %>%
     dplyr::ungroup() %>%
     tidyr::pivot_wider(.data$species,

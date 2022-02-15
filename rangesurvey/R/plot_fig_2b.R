@@ -17,7 +17,8 @@ plot_fig_2b <- function(model,
     ggplot(
       data,
       aes(
-        x = stats::reorder(.data$LName, .data$P.Y...Positive.),
+        x = stats::reorder(.data$LName,
+                           .data$P.Y...Positive.),
         y = .data$P.Y...Positive.,
         fill = .data$Group,
         Colour = .data$Group
@@ -34,26 +35,12 @@ plot_fig_2b <- function(model,
       xmax = 1.5,
       ymin = 0.925,
       ymax = 0.975
-    ) +
-    annotation_raster(
-      species_rasters$bee,
-      xmin = 6.6,
-      xmax = 7.5,
-      ymin = 0.925,
-      ymax = 0.975
-    ) +
-    annotation_raster(
-      species_rasters$dragonfly,
-      xmin = 9.6,
-      xmax = 10.5,
-      ymin = 0.925,
-      ymax = 0.975
-    ) +
-    annotation_raster(
-      species_rasters$zygoptera,
-      xmin = 7.6,
-      xmax = 8.5,
-      ymin = 0.925,
+    )+
+     annotation_raster(
+      species_rasters$shieldbug,
+      xmin = 1.6,
+      xmax = 2.5,
+      ymin = 0.92,
       ymax = 0.975
     ) +
     annotation_raster(
@@ -64,10 +51,10 @@ plot_fig_2b <- function(model,
       ymax = 0.975
     ) +
     annotation_raster(
-      species_rasters$shieldbug,
-      xmin = 1.6,
-      xmax = 2.5,
-      ymin = 0.92,
+      species_rasters$moth,
+      xmin = 3.6,
+      xmax = 4.5,
+      ymin = 0.935,
       ymax = 0.975
     ) +
     annotation_raster(
@@ -76,53 +63,46 @@ plot_fig_2b <- function(model,
       xmax = 5.5,
       ymin = 0.935,
       ymax = 0.975
-    ) +
+    )  +
     annotation_raster(
-      species_rasters$moth,
-      xmin = 3.6,
-      xmax = 4.5,
-      ymin = 0.935,
-      ymax = 0.975
-    ) +
-    annotation_raster(
-      species_rasters$LittleEgret,
-      xmin = 8.6,
-      xmax = 9.5,
-      ymin = 0.925,
-      ymax = 0.975
-    ) +
-    annotation_raster(
-      species_rasters$LittleEgret,
+      species_rasters$bee,
       xmin = 5.6,
       xmax = 6.5,
       ymin = 0.925,
       ymax = 0.975
     ) +
     annotation_raster(
-      species_rasters$Spoonbill,
-      xmin = 15.5,
-      xmax = 16.4,
-      ymin = 0.925,
-      ymax = 0.975
-    ) +
-    annotation_raster(
-      species_rasters$LittleHeron,
-      xmin = 14.65,
-      xmax = 15.35,
-      ymin = 0.93,
-      ymax = 0.96
-    ) +
-    annotation_raster(
-      species_rasters$FakeStilt,
-      xmin = 13.6,
-      xmax = 14.5,
+      species_rasters$LittleEgret,
+      xmin = 6.6,
+      xmax = 7.5,
       ymin = 0.925,
       ymax = 0.975
     ) +
     annotation_raster(
       species_rasters$LittleEgret,
-      xmin = 12.6,
-      xmax = 13.5,
+      xmin = 7.6,
+      xmax = 8.5,
+      ymin = 0.925,
+      ymax = 0.975
+    ) +
+    annotation_raster(
+      species_rasters$zygoptera,
+      xmin = 8.6,
+      xmax = 9.5,
+      ymin = 0.925,
+      ymax = 0.975
+    ) +
+    annotation_raster(
+      species_rasters$dragonfly,
+      xmin = 9.6,
+      xmax = 10.5,
+      ymin = 0.925,
+      ymax = 0.975
+    ) +
+     annotation_raster(
+      species_rasters$FakeIbis,
+      xmin = 10.6,
+      xmax = 11.5,
       ymin = 0.925,
       ymax = 0.975
     ) +
@@ -132,11 +112,32 @@ plot_fig_2b <- function(model,
       xmax = 12.5,
       ymin = 0.925,
       ymax = 0.975
+    )+
+    annotation_raster(
+      species_rasters$LittleEgret,
+      xmin = 12.6,
+      xmax = 13.5,
+      ymin = 0.925,
+      ymax = 0.975
     ) +
     annotation_raster(
-      species_rasters$FakeIbis,
-      xmin = 10.6,
-      xmax = 11.5,
+      species_rasters$FakeStilt,
+      xmin = 13.6,
+      xmax = 14.5,
+      ymin = 0.925,
+      ymax = 0.975
+    )  +
+    annotation_raster(
+      species_rasters$LittleHeron,
+      xmin = 14.65,
+      xmax = 15.35,
+      ymin = 0.93,
+      ymax = 0.96
+    ) +
+    annotation_raster(
+      species_rasters$Spoonbill,
+      xmin = 15.5,
+      xmax = 16.4,
       ymin = 0.925,
       ymax = 0.975
     ) +

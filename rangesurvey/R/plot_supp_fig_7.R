@@ -45,7 +45,8 @@ plot_supp_fig_7 <- function(data) {
     )) +
     ylab("% of Respondents recording each group") +
     xlab("Taxon Group") +
-    guides(fill = FALSE, colour = FALSE) +
+    guides(fill = "none",
+           colour = "none") +
     scale_fill_manual(
       values = c(
         "Birds" = "#88CCEE",

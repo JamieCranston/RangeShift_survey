@@ -46,7 +46,8 @@ plot_supp_fig_3 <- function(data) {
     coord_flip() +
     ylab("Number of Respondents") +
     scale_x_discrete(name = element_blank()) +
-    scale_y_continuous(position = "right", expand = expand_scale(add = c(0, 30))) +
+    scale_y_continuous(position = "right",
+                       expand = expand_scale(add = c(0, 30))) + #todo update deprecated function
     scale_fill_manual(
       values = c(
         "Bird" = "#88CCEE",

@@ -2,6 +2,7 @@
 library(rangesurvey)
 library(magrittr)
 library(ggplot2)
+library(patchwork)
 
 ggplot2::theme_set(load_theme())
 
@@ -47,8 +48,9 @@ management_responses_to_model <- get_attitude_models_data(species_frame,
 species_responses_to_model %>%
   dplyr::count(species)
 
-plot_fig_1(species_frame)
-plot_fig_3(species_frame)
+fig_1 <- plot_fig_1(species_frame)
+
+fig_3 <- plot_fig_3(species_frame)
 
 # build models for respondents' attitudes to species and management -------
 
@@ -62,10 +64,22 @@ management_attitudes_model <-
 
 # visualise model outputs -------------------------------------------------
 
-plot_fig_2a(model = species_attitude_model)
-plot_fig_2b(model = species_attitude_model, 
-            config = config)
+fig_2a <- plot_fig_2a(model = species_attitude_model)+
+  theme(axis.text = element_text(size = 9),
+        legend.text = element_text(size = 11),
+        axis.title = element_text(size = 11),
+        strip.text.x = element_text(size = 10))
 
+fig_2b <- plot_fig_2b(model = species_attitude_model, 
+            config = config)+
+  xlab("")+
+  theme(legend.text = element_text(size = 11),
+        axis.text = element_text(size = 9),
+        axis.title.y = element_text(size = 11),
+        plot.tag.position = c(0.05, 0.98)
+        )
+
+fig_2 <- fig_2a + fig_2b
 
 
 #TODO plot table insets -------------------------------------------------------
@@ -74,19 +88,40 @@ plot_fig_2b(model = species_attitude_model,
 # plot_supp_table_3_figures_insets()
 
 #TODO save_output_figures() ---------------------------
+rmarkdown::render(input = "rmarkdown/PnN_submission.Rmd",
+                  output_dir = "doc/",
+                  params = list(
+                    figures = list(fig_1 = fig_1,
+                                fig_2 = fig_2,
+                                fig_3 = fig_3
+                                )
+                  )
+)
 
 #TODO render supplementary figures doc------------------
+render_supp_figures_doc(respondent_frame = respondent_table_clean,
+                        species_frame = species_frame,
+                        config = config,
+                        management_model = management_attitudes_model,
+                        management_responses_to_model = management_responses_to_model) 
 
-# plot_supp_fig_1(data = respondent_table_clean,
-# config = config)
-# plot_supp_fig_2(data = respondent_table_clean,
-#                 config = config)
+supp_fig_list <- generate_supp_figures(respondent_frame = respondent_table_clean,
+                      species_frame = species_frame,
+                      config = config,
+                      management_model = management_attitudes_model,
+                      management_responses_to_model = management_responses_to_model)
+
+ # plot_supp_fig_1(data = respondent_table_clean,
+ # config = config)
+ # plot_supp_fig_2(data = respondent_table_clean,
+ #                 config = config)
 # plot_supp_fig_3(data = respondent_table_clean)
 # plot_supp_fig_4(data = respondent_table_clean)
 # plot_supp_fig_5(data = respondent_table_clean,
 #                 config =  config)
-# plot_supp_fig_6(speciesdata = survey_responses_to_model)
+ plot_supp_fig_6(speciesdata = survey_responses_to_model)
 # plot_supp_fig_7(data = respondent_table_clean)
 # plot_supp_fig_8()
 # plot_supp_fig_9()
 # plot_supp_fig_10()
+ 

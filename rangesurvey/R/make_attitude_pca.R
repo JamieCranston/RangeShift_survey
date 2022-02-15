@@ -16,14 +16,58 @@ make_attitude_pca <- function(data) {
     ) %>%
     stats::na.omit() %>%
     FactoMineR::MCA(
-      X = .data$.,
+      X = .,
       graph = TRUE,
       ncp = Inf
     )
+return(data.mca)
+}
 
-  data.hcpc <- FactoMineR::HCPC(data.mca,
-    nb.clust = 4
+#' Title
+#'
+#' @param mca 
+#'
+#' @return
+#' @export
+#'
+make_attitude_pca_plots <- function(mca){
+  biplot <- factoextra::fviz_mca(mca,choice = "var.cat", label = "var")
+  
+  screeplot <- factoextra::fviz_screeplot(mca)
+
+  return(list(biplot = biplot,
+              screeplot= screeplot)
   )
+}
 
+#' make_attitude_clusters
+#'
+#' @param mca 
+#'
+#' @return
+#' @export
+#'
+#' @examples
+make_attitude_clusters <- function(mca){
+  data.hcpc <- FactoMineR::HCPC(mca,
+                                nb.clust = 4
+  )
   return(data.hcpc)
 }
+  
+#' Title
+#'
+#' @param hcpc 
+#'
+#' @return
+#' @export
+
+make_attitude_cluster_plots <- function(hcpc){
+  attitude_cluster_plots <- list(
+  clust_plot = factoextra::fviz_cluster(hcpc),
+  dend_plot = factoextra::fviz_dend(hcpc)
+)
+  return(attitude_cluster_plots)
+}  
+  
+

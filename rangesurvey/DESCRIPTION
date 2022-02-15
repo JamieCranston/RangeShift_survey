@@ -1,11 +1,10 @@
 Package: rangesurvey
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Reproducible Analytical Pipeline for <doi on publication> 
 Version: 0.1.0
 Author: James Cranston jcranston@pm.me
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: This package is reproducibly performs the analysis underlying the 
+    following paper in People and Nature ().
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

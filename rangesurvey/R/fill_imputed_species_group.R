@@ -10,7 +10,7 @@ fill_imputed_species_group <- function(data) {
       .data$id,
       .data$imputed_group
     ) %>%
-    tidyr::separate(.data$.,
+    tidyr::separate(.,
       .data$imputed_group,
       sep = ";",
       into = c(
