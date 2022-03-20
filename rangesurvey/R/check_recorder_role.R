@@ -17,10 +17,10 @@ check_recorder_role <- function(data, config) {
       T ~ NA_character_
     ))
 
-  recorder_val <- readr::read_csv(config$validation_dirs$recorder_val, col_types = readr::cols(
-    id = "c",
-    imputed_involvement = "c"
-  ))
+  #recorder_val <- readr::read_csv(config$validation_dirs$recorder_val, col_types = readr::cols(
+  #  id = "c",
+  #  imputed_involvement = "c"
+  #))
 
   print("please see our assessment of respondent answers to whether they could name an arriving range-shifting species")
   print(recorder_val)

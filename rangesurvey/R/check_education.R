@@ -22,7 +22,7 @@ check_education <- function(data, config) {
       -.data$`GDemographics03[SQ004]`
     )
 
-  education_val <- readr::read_csv(config$validation_dirs$education_val, col_types = readr::cols(id = "c"))
+  #education_val <- readr::read_csv(config$validation_dirs$education_val, col_types = readr::cols(id = "c"))
 
   print("please see our imputations of respondent education from the Education (other) responses")
   print(education_val)

@@ -7,7 +7,7 @@
 #'   range-shifting species
 #' @export
 check_groups_recorded <- function(data, config) {
-  species_group_val <- readr::read_csv(config$validation_dirs$species_group_val, col_types = readr::cols(id = "c"))
+  #species_group_val <- readr::read_csv(config$validation_dirs$species_group_val, col_types = readr::cols(id = "c"))
 
   print("please see our imputation for respondent answers about other groups they recorded")
   print(species_group_val)
