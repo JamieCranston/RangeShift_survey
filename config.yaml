@@ -1,4 +1,5 @@
 data_dir: "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/"
+data_file: "Survey_results_Censored.csv"
 validation_dirs:
   education_val: "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/ValidationFiles/Validated/EducationValidated.csv"  
   awareness_val: "D:/Academic_Work/PhD Thesis/Chapter_2/R_Analysis/ValidationFiles/Validated/AwarenessValidatedFinal.csv"  

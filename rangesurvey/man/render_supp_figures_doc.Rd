@@ -8,6 +8,7 @@ render_supp_figures_doc(
   respondent_frame,
   species_frame,
   management_model,
+  management_responses_to_model,
   config,
   html_file_dir_out = "./doc"
 )

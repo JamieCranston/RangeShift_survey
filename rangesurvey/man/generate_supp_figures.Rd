@@ -8,6 +8,7 @@ generate_supp_figures(
   respondent_frame,
   species_frame,
   management_model,
+  management_responses_to_model,
   config
 )
 }
